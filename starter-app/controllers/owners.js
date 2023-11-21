@@ -1,4 +1,3 @@
-const owner = require("../models/owner");
 const Owner = require("../models/owner");
 
 module.exports = {
