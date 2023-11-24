@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h2>Add Dog</h2>
 
-<form action="/owner/<%= owner._id %>/dogs" method="POST">
+<form action="/owners/<%= owner._id %>/dogs" method="POST">
     <label>Name:
         <input type="text" name="name">
     </label>
@@ -19,6 +19,9 @@
     </label>
     <label>AKC Certification:
         <input type="checkbox" name="hasAKCcertification">
+    </label>
+    <label>
+        <button type="submit">Add Dog</button>
     </label>
 </form>
 
