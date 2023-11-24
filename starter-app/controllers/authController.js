@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 exports.getLogin = (req, res) => {
-  res.render('login', { title: 'Login' });
+  res.render('login/login', { title: 'Login' });
 };
 
 exports.postLogin = async (req, res) => {
@@ -35,13 +35,42 @@ exports.postLogin = async (req, res) => {
 };
 
 exports.getSignup = (req, res) => {
-  res.render('signup');
+  res.render('login/signup', { title: 'signup'});
 };
 
 exports.postSignup = async (req, res) => {
-  // handle signup logic
+  const { username, email, password } = req.body;
+
+  try {
+      
+      const existingUser = await User.findOne({ email });
+
+      if (existingUser) {
+          return res.render('login/signup', { title: 'Signup', error: 'Email already in use' });
+      }
+
+      
+      const newUser = new User({ username, email, password });
+
+      
+      await newUser.save();
+
+      // Redirect to the login page after successful signup
+      res.redirect('/login');
+  } catch (error) {
+      console.error(error);
+      
+      res.render('error', { title: 'Error', error: 'An error occurred during signup' });
+  }
+};
+exports.logout = (req, res) => {
+  // Destroy the session
+  req.session.destroy((error) => {
+    if (error) {
+      console.error('Error destroying session:', error);
+      return res.render('error', { title: 'Error', error: 'An error occurred during logout' });
+    }
+    res.redirect('/login');
+  });
 };
 
-exports.logout = (req, res) => {
-  // handle logout logic
-};
