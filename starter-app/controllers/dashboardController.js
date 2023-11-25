@@ -50,21 +50,34 @@
 // module.exports = { getDashboard };
 
 
-// dashboardController.js
-const User = require('../models/user');
 
-const getDashboard = (req, res) => {
-    // Fetch data for the dashboard
-    User.find({}, function(err, data) {
-        if (err) {
-            console.log(err);
-            res.status(500).send('An error occurred', err);
-        } else {
-            // Render the dashboard view with the data
-            res.render('login/dashboard', { title: 'Dashboard', data: data });
-        }
-    });
-}
 
-module.exports = { getDashboard };
+
+
+
+
+
+
+
+
+
+
+
+// // dashboardController.js
+// const User = require('../models/user');
+
+// const getDashboard = (req, res) => {
+//     // Fetch data for the dashboard
+//     User.find({}, function(err, data) {
+//         if (err) {
+//             console.log(err);
+//             res.status(500).send('An error occurred', err);
+//         } else {
+//             // Render the dashboard view with the data
+//             res.render('login/dashboard', { title: 'Dashboard', data: data });
+//         }
+//     });
+// }
+
+// module.exports = { getDashboard };
 

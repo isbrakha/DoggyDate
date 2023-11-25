@@ -13,7 +13,8 @@ const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-const dashboardRoutes = require('./routes/dashboardRoutes');
+
+// const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 
@@ -32,6 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+app.use(bodyParser.urlencoded({ extended: true }));//NEW DASHBOARD CODE
+app.use(bodyParser.json()); //NEW DASHBOARD CODE
+
 app.use(session({ secret: 'your-random-secret', resave: true, saveUninitialized: true }));
 
 // Use your existing middleware
@@ -42,7 +47,8 @@ app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
-app.use('/dashboard', dashboardRoutes);
+
+// app.use('/dashboard', dashboardRoutes); /dashboard
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
