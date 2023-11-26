@@ -1,24 +1,28 @@
 <%- include('../partials/header') %>
+
 <h2>Add Dog</h2>
 
-<form action="/owners/<%= owner._id %>/dogs" method="POST">
-    <label>Name:
-        <input type="text" name="name">
+<form action="/owners/<%= owner._id %>/dogs" method="POST" enctype="multipart/form-data">
+    <label for="pictures"> Add pictures
+        <input type="file" name="pictures" id="pictures" multiple>
     </label>
-    <label>Age:
-        <input type="number" name="age">
+    <label for="name">Name:
+        <input type="text" name="name" id="name">
     </label>
-    <label>Weight:
-        <input type="number" name="weight">
+    <label for="age">Age:
+        <input type="number" name="age" id="age">
     </label>
-    <label>Breed:
-        <input type="text" name="breed">
+    <label for="weight">Weight:
+        <input type="number" name="weight" id="weight">
     </label>
-    <label>Bio:
-        <input type="text" name="bio">
+    <label for="breed">Breed:
+        <input type="text" name="breed" id="breed">
     </label>
-    <label>AKC Certification:
-        <input type="checkbox" name="hasAKCcertification">
+    <label for="bio">Bio:
+        <input type="text" name="bio" id="bio">
+    </label>
+    <label for="hasAKCcertification">AKC Certification:
+        <input type="checkbox" name="hasAKCcertification" id="hasAKCcertification">
     </label>
     <label>
         <button type="submit">Add Dog</button>

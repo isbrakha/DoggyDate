@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const dogSchema = new Schema(
   {
-    pictures: {type: [String], default: 'starter-app/public/images/default-dog.jpg'},
+    pictures: [String],
     name: {type: String, required: true},
     age: {type: Number},
     weight: {type: Number},
