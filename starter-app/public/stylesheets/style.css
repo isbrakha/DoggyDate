@@ -1,8 +1,8 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: radial-gradient(circle at center, #dfe9fbff, #6e9be7ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a {
-  color: #00B7FF;
-}

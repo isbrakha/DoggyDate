@@ -6,10 +6,15 @@ module.exports = {
     create
 };
 
- function newOwner(req,res){
+function newOwner(req,res){
     res.render("owners/newOwner", {title: "Add details", errorMsg: ""});
 }
 
 async function create(req,res){
-    
+    try {
+        const createdOwner = await Owner.create(req.body)
+
+    } catch (err){
+
+    }
 }
