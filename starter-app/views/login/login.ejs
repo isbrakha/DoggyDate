@@ -12,6 +12,25 @@
     <h1>Login</h1>
 
 <!-- Login form  -->
+<!-- Display any error messages if there are any -->
+<% if (typeof error !== 'undefined' && error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  
+  <!-- Login form -->
+  <form action="/login" method="post">
+    <!-- Your form fields go here -->
+    <!-- Example: -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="/signup">Signup here</a>.</p>
+
 
 </body>
 </html>
