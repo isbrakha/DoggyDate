@@ -133,10 +133,10 @@ exports.postSignup = async (req, res) => {
     await newUser.save();
 
     // Redirect to the login page after successful signup
-    res.redirect('/login');
+    res.redirect('/profile');
   } catch (error) {
     console.error(error);
-    res.render('error', { title: 'Error', error: 'An error occurred during signup' });
+    res.render('error', { title: 'Error', error: 'An error occurred during signup', message: 'Need to look into this more '});
   }
 };
 

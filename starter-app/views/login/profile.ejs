@@ -1,4 +1,4 @@
-<!-- views/login/dashboard.ejs -->
+<!-- views/login/profile.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +11,18 @@
   <h1>Welcome to the Dashboard, <%= user.username %>!</h1>
 
   <!-- Update Username Form -->
-<form action="/user/update-username" method="POST">
-  <label for="newUsername">New Username:</label>
-  <input type="text" id="newUsername" name="newUsername" required>
-  <button type="submit">Update Username</button>
-</form>
+  <form action="/user/update-username" method="POST">
+    <label for="newUsername">New Username:</label>
+    <input type="text" id="newUsername" name="newUsername" required>
+    <button type="submit">Update Username</button>
+  </form>
 
-<!-- Update Password Form -->
-<form action="/user/update-password" method="POST">
-  <label for="newPassword">New Password:</label>
-  <input type="password" id="newPassword" name="newPassword" required>
-  <button type="submit">Update Password</button>
-</form>
+  <!-- Update Password Form -->
+  <form action="/user/update-password" method="POST">
+    <label for="newPassword">New Password:</label>
+    <input type="password" id="newPassword" name="newPassword" required>
+    <button type="submit">Update Password</button>
+  </form>
 
 </body>
 </html>
-

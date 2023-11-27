@@ -1,3 +1,171 @@
+// const createError = require('http-errors');
+// const express = require('express');
+// const path = require('path');
+// const cookieParser = require('cookie-parser');
+// const logger = require('morgan');
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+// const session = require('express-session');
+
+// require('dotenv').config();
+
+// const indexRouter = require('./routes/index');
+// const ownersRouter = require('./routes/owners');
+// const authRoutes = require('./routes/authRoutes');
+// const userRoutes = require('./routes/userRoutes');
+
+// // const dashboardRoutes = require('./routes/dashboardRoutes');
+
+// const app = express();
+
+// const PORT = process.env.PORT || 3000;// MAYBE DELETE 1
+
+// // Connect to MongoDB (replace 'your-database-name' with your actual database name)
+// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+
+// // Middleware
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(cookieParser());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+
+
+// app.use(bodyParser.urlencoded({ extended: true }));//NEW DASHBOARD CODE
+// app.use(bodyParser.json()); //NEW DASHBOARD CODE
+
+// app.use(session({ secret: 'your-random-secret', resave: true, saveUninitialized: true }));
+
+// // Use your existing middleware
+// app.use(logger('dev'));
+
+// // Use your existing routes
+// app.use('/', indexRouter);
+// app.use('/owners', ownersRouter);
+// app.use('/', authRoutes);
+// app.use('/user', userRoutes);
+
+// // app.use('/dashboard', dashboardRoutes); /dashboard
+
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
+
+// // error handler
+// app.use(function(err, req, res, next) {
+//   if (req.app.get('env') === 'development') {
+//     console.error(err.stack);
+//   }
+
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render("error", { title: "Error Page" });
+// });
+
+// // Log route definitions
+// app._router.stack.forEach((middleware) => {
+//   if (middleware.route) {
+//     console.log(`Route: ${middleware.route.path}`);
+//   }
+// });
+
+// db.on('error', function (error){
+//   console.log('MongoDB connection error:', error);
+// });
+
+// db.once('open', function(){
+//   console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
+// });
+
+// module.exports = app;
+
+
+
+// <!----------------------- CODE BEFORE THE UPDATED CODE -------------->
+
+// const createError = require('http-errors');
+// const express = require('express');
+// const path = require('path');
+// const cookieParser = require('cookie-parser');
+// const logger = require('morgan');
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+// const session = require('express-session');
+
+// require('dotenv').config();
+
+// const indexRouter = require('./routes/index');
+// const ownersRouter = require('./routes/owners');
+// const authRoutes = require('./routes/authRoutes');
+// const userRoutes = require('./routes/userRoutes');
+
+// const app = express();
+
+// const PORT = process.env.PORT || 3000;
+
+// // Connect to MongoDB
+// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+
+// // Middleware
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(session({ secret: 'your-random-secret', resave: true, saveUninitialized: true }));
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.use(logger('dev'));
+
+// // Routes
+// app.use('/', indexRouter);
+// app.use('/owners', ownersRouter);
+// app.use('/', authRoutes);
+// app.use('/user', userRoutes);
+
+// // Error handling
+// app.use(function(err, req, res, next) {
+//   if (req.app.get('env') === 'development') {
+//     console.error(err.stack);
+//   }
+
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//   res.status(err.status || 500);
+//   res.render("error", { title: "Error Page" });
+// });
+
+// // Log route definitions
+// app._router.stack.forEach((middleware) => {
+//   if (middleware.route) {
+//     console.log(`Route: ${middleware.route.path}`);
+//   }
+// });
+
+// // MongoDB connection
+// db.on('error', function (error) {
+//   console.log('MongoDB connection error:', error);
+// });
+
+// db.once('open', function() {
+//   console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
+// });
+
+// module.exports = app;
+
+// <!----------------------- CODE BEFORE THE UPDATED CODE -------------->
+
+
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -13,18 +181,13 @@ const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-
-// const dashboardRoutes = require('./routes/dashboardRoutes');
-
 const app = express();
 
-const PORT = process.env.PORT || 3000;// MAYBE DELETE 1
+const PORT = process.env.PORT || 3000;
 
-// Connect to MongoDB (replace 'your-database-name' with your actual database name)
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -33,55 +196,48 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: true }));//NEW DASHBOARD CODE
-app.use(bodyParser.json()); //NEW DASHBOARD CODE
+app.use(session({
+  secret: 'your-random-secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
-app.use(session({ secret: 'your-random-secret', resave: true, saveUninitialized: true }));
-
-// Use your existing middleware
 app.use(logger('dev'));
-
-// Use your existing routes
 app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
 
-// app.use('/dashboard', dashboardRoutes); /dashboard
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
   if (req.app.get('env') === 'development') {
     console.error(err.stack);
   }
 
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
-  res.render("error", { title: "Error Page" });
+  res.render('error', { title: 'Error Page' });
 });
 
-// Log route definitions
 app._router.stack.forEach((middleware) => {
   if (middleware.route) {
     console.log(`Route: ${middleware.route.path}`);
   }
 });
 
-db.on('error', function (error){
+db.on('error', function (error) {
   console.log('MongoDB connection error:', error);
+  res.status(500).send('Database connection error. Please try again later.')
 });
 
-db.once('open', function(){
+db.once('open', function () {
   console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
 });
 

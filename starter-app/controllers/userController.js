@@ -125,6 +125,7 @@ exports.getUserProfile = async (req, res) => {
 exports.renderUserProfile = async (req, res) => {
   try {
     if (!req.session.user) {
+      console.log(req.session.user)
       return res.status(401).json({ message: 'Unauthorized' });
     }
 
@@ -136,7 +137,7 @@ exports.renderUserProfile = async (req, res) => {
     }
 
     // Assuming you are using a template engine like EJS
-    res.render('login/profile', { user: { username: user.username, email: user.email } });
+    res.render('login/profile', { user }); //: { username: user.username, email: user.email } });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
