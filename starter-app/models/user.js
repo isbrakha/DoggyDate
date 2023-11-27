@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true },
@@ -17,22 +18,6 @@ userSchema.pre('save', async function (next) {
     }
 });
 
-// userSchema.pre('save', async function (next) {
-//     const user = this;
-//     if (user.isModified('password')) {
-//       user.password = await bcrypt.hash(user.password, 10);
-//     }
-//     next();    // NEW DASHBOARD CODE MIGHT HAVE TO USE IT
-//   });
-
-
-
-
-
-
-
-
-
 userSchema.methods.comparePassword = async function (password) {
     try {
         return await bcrypt.compare(password, this.password);
@@ -42,5 +27,6 @@ userSchema.methods.comparePassword = async function (password) {
 }
 
 const User = mongoose.model('User', userSchema);
+
 
 module.exports = User;
