@@ -11,7 +11,6 @@ const dogSchema = new Schema(
     weight: {type: Number},
     breed: {type: String},
     bio: {type: String},
-    city: {type: String, required: true},
     hasAkcCertification: {type: Boolean},
     owner: {
       type: mongoose.Schema.Types.ObjectId,
