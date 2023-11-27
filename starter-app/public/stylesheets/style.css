@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  /* font-family: Helvetica; */
+  font-family: Helvetica;
 }
 
 body {
@@ -9,10 +9,11 @@ body {
   hsl(169deg 100% 67%) 0%,
   hsl(239deg 77% 79%) 50%,
   hsl(279deg 100% 50%) 100%);
-  margin: 0 auto;
+  margin: 0;
   height: 120vh;
-  padding: 0;
-  /* overflow: hidden; */
+  /* padding: 0; */
+  overflow: hidden;
+  border: 5px double rgb(214, 123, 201);
   /* display: grid;
   align-items: center; */
  /* grid-template-rows: 50px 1fr; */
@@ -72,7 +73,7 @@ main {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  border: 5px double rgb(214, 123, 201);
+  /* border: 5px double rgb(214, 123, 201); */
 }
 
 .signupWordClass {
@@ -91,7 +92,7 @@ main {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  border: 5px double rgb(214, 123, 201);
+  /* border: 5px double rgb(214, 123, 201); */
 }
 
 .loginWordClass {
@@ -116,8 +117,8 @@ svg text {
 	animation: stroke 10s infinite alternate;
 	stroke-width: 2;
 	stroke: #D3D259;
-	font-size: 80px;
-  letter-spacing: 5px;
+	font-size: 65px;
+  letter-spacing: 2px;
   text-anchor: middle;
 }
 @keyframes stroke {
@@ -133,12 +134,15 @@ svg text {
 	}
 }
 .wrapper {
-  width: 500px;
+  width: 434px;
 }
 
 @media only screen and (max-width: 600px) {
   body {
-    font-size: 24px;
-    width: 90%;
+    width: 100%;
+    font-size: 18px;
   }
-}
+  .wrapper {
+    width: 95%;
+  }
+};
