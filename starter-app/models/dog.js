@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
 
 const dogSchema = new Schema(
   {
-    pictures: [String],
+    pictures: {type: [String], required: true},
     name: {type: String, required: true},
-    age: {type: Number},
+    age: {type: Number, required: true},
     weight: {type: Number},
     breed: {type: String},
     bio: {type: String},
+    city: {type: String, required: true},
     hasAkcCertification: {type: Boolean},
     owner: {
       type: mongoose.Schema.Types.ObjectId,
