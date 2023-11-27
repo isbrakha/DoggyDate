@@ -6,7 +6,6 @@ const userSchema = new Schema({
   photo: {
     type: [String],
     default: [],
-    required: true,
   },
   dogName: {
     type: String,
@@ -16,7 +15,10 @@ const userSchema = new Schema({
     type: Number,
     required: true,
   },
-  location: String,
+  city: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
