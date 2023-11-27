@@ -14,6 +14,13 @@ const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+// require('dotenv').config();
+// require('./config/database');
+
+// const indexRouter = require('./routes/index');
+// const ownersRouter = require('./routes/owners');
+const dogsRouter = require('./routes/dogs')
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -28,6 +35,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use('/uploads', express.static('uploads'));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -47,6 +56,12 @@ app.use('/user', userRoutes);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+app.use('/', dogsRouter)
+
+// catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 app.use(function(err, req, res, next) {
   if (req.app.get('env') === 'development') {

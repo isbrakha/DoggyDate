@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<h2>User info</h2>
+
+<form action="/owners" method="POST">
+    <label>Full Name:
+        <input type="text" name="fullName">
+    </label>
+    <label>User Name:
+        <input type="text" name="userName">
+    </label>
+    <label>Age:
+        <input type="number" name="age">
+    </label>
+    <label>Bio:
+        <input type="text" name="bio">
+    </label>
+    <label>
+        <button type="submit">Add pet</button>
+    </label>
+</form>
+
+<p><%= errorMsg %></p>
+
+
+
+
+
+<%- include('../partials/footer') %>
