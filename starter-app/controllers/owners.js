@@ -1,5 +1,5 @@
 const Owner = require("../models/owner");
-//const Dog = require("../models/dog");
+const Dog = require("../models/dog");
 
 module.exports = {
     index,
@@ -21,11 +21,12 @@ async function create(req,res){
 
     try {
         const createdOwner = await Owner.create(ownerData);
-        res.redirect("/owners/" + createdOwner._id);
+        res.redirect("/owners/" + createdOwner._id + "/dogs/new");
     } catch (err){
         console.log(err);
-        res.render("owners/new", {errorMsg: err.message});
+        res.render("owners/newOwner", {errorMsg: err.message});
     }
+
 }
 
 async function index(req, res){
