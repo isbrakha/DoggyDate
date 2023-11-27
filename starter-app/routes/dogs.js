@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const dogsCtrl = require("../controllers/dogs")
-const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const upload = require('../config/multer.js')
+
 
 
 router.get('/owners/:id/dogs/new', dogsCtrl.new)
