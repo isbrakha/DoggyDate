@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+<h2>Add Dog</h2>
+
+<form action="/owners/<%= owner._id %>/dogs" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label>
+    <label>Age:
+        <input type="number" name="age">
+    </label>
+    <label>Weight:
+        <input type="number" name="weight">
+    </label>
+    <label>Breed:
+        <input type="text" name="breed">
+    </label>
+    <label>Bio:
+        <input type="text" name="bio">
+    </label>
+    <label>AKC Certification:
+        <input type="checkbox" name="hasAKCcertification">
+    </label>
+    <label>
+        <button type="submit">Add Dog</button>
+    </label>
+</form>
+
+<p><%= errorMsg %></p>
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -1,10 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const dogCtrl = require("../controllers/dogs");
+const dogsCtrl = require("../controllers/dogs")
 
-/*Get  */
-//router.get("/dogs/new", dogCtrl.new);
-router.post("/dogs", dogCtrl.create);
-router.get("/dogs", dogCtrl.index);
+router.get('/owners/:id/dogs/new', dogsCtrl.new)
+router.post('/owners/:id/dogs', dogsCtrl.create)
 
 module.exports = router;

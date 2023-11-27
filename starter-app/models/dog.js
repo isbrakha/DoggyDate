@@ -5,13 +5,17 @@ const Schema = mongoose.Schema;
 
 const dogSchema = new Schema(
   {
-    pictures: {type: [String]},
+    pictures: {type: [String], default: 'starter-app/public/images/default-dog.jpg'},
     name: {type: String, required: true},
     age: {type: Number},
     weight: {type: Number},
     breed: {type: String},
     bio: {type: String},
-    akc: {type: Boolean}
+    hasAkcCertification: {type: Boolean, default: false},
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Owner'
+    }
   }
 );
 
