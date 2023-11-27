@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<div class="wrapper">
+  <svg>
+    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+      DoggyDate
+    </text>
+  </svg>
+</div>
+<br><br><br><br><br><br><br>
+<body class="loginClass">
+    <h1 class="loginWordClass">Login</h1>
+    <br>
+<!-- Login form  -->
+<!-- Display any error messages if there are any -->
+<% if (typeof error !== 'undefined' && error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  
+  <!-- Login form -->
+  <form action="/login" method="POST">
+    <!-- Your form fields go here -->
+    <label for="username">Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <br>
+    <input type="text" id="username" name="username" placeholder="enter your username" required>
+    <br>
+    <br>
+    <label for="password">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <br>
+    <input type="password" id="password" name="password" placeholder="enter your password" required>
+    <br>
+    <br>
+    <button type="submit">Log in</button>
+
+  <p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
+  <br><br><br><br>
+</form>
+
+</body>
+</html>

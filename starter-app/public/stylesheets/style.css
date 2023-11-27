@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
+  /* font-family: Helvetica; */
 }
 
 body {
@@ -9,11 +9,12 @@ body {
   hsl(169deg 100% 67%) 0%,
   hsl(239deg 77% 79%) 50%,
   hsl(279deg 100% 50%) 100%);
-  margin: 0;
+  margin: 0 auto;
   height: 120vh;
-  overflow: hidden;
-  /* display: grid; */
-  /* align-items: center; */
+  padding: 0;
+  /* overflow: hidden; */
+  /* display: grid;
+  align-items: center; */
  /* grid-template-rows: 50px 1fr; */
 }
 
@@ -49,7 +50,7 @@ nav a:hover,nav a:focus, nav a:active {
 #topButtonsID {
   /* grid-area: nav; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0 20px 0 30px;
   border-bottom: 7px double rgb(157, 32, 179);
@@ -64,3 +65,80 @@ main {
   height: 100vh;
 }
 
+.signUpClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  border: 5px double rgb(214, 123, 201);
+}
+
+.signupWordClass {
+  text-align: center;
+  color: rgb(182, 0, 206);
+  padding: 7px;
+  border: 5px solid rgb(214, 123, 201);
+  border-style: double none dashed none;
+  border-radius: 25px;
+}
+
+.loginClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  border: 5px double rgb(214, 123, 201);
+}
+
+.loginWordClass {
+  text-align: center;
+  color: rgb(182, 0, 206);
+  padding: 7px;
+  border: 5px solid rgb(214, 123, 201);
+  border-style: double none dashed none;
+  border-radius: 25px;
+}
+
+form {
+  text-align: center;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Glory&display=swap");
+svg {
+	font-family: "Glory", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 10s infinite alternate;
+	stroke-width: 2;
+	stroke: #D3D259;
+	font-size: 80px;
+  letter-spacing: 5px;
+  text-anchor: middle;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1); }
+	80%  {fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1); stroke-width: 3; }
+	100% {
+		fill: rgba(204,171,76,1); stroke: rgba(211,210,89,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+.wrapper {
+  width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 24px;
+    width: 90%;
+  }
+}
