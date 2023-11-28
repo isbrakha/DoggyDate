@@ -12,7 +12,7 @@ body {
   margin: 0;
   height: 120vh;
   /* padding: 0; */
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 5px double rgb(214, 123, 201);
   /* display: grid;
   align-items: center; */
