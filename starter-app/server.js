@@ -70,11 +70,12 @@ app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
-
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 app.use('/', dogsRouter)
+
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
+
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
