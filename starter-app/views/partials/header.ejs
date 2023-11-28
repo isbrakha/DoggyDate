@@ -8,12 +8,13 @@
 
 </head>
 <header>
-    <nav id="topButtonsID">
-        <a href="/owners">Back ↩</a>
-            <a href="/owners">Inbox 📩</a>
-            <a href="/login">Log Out</a>
-    </nav>
+<nav id="topButtonsID">
+    <% if (user) { %>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+    <% } %>
+</nav>
 </header>
 <body>
-
 <main>

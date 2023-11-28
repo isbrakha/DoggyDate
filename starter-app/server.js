@@ -1,21 +1,25 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const session = require('express-session');
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
+const session = require("express-session");
+const passport = require("passport");
 
-require('dotenv').config();
+require("dotenv").config();
+require("./config/database");
+require("./config/passport");
 
-const indexRouter = require('./routes/index');
-const ownersRouter = require('./routes/owners');
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-const dogsRouter = require('./routes/dogs')
+const indexRouter = require("./routes/index");
+const ownersRouter = require("./routes/owners");
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+
+const dogsRouter = require("./routes/dogs");
 
 const app = express();
 
@@ -32,11 +36,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use('/uploads', express.static('uploads'));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use("/uploads", express.static("uploads"));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -49,14 +70,14 @@ app.use(
   })
 );
 
-app.use(logger('dev'));
-app.use('/', indexRouter);
-app.use('/owners', ownersRouter);
-app.use('/', authRoutes);
-app.use('/user', userRoutes);
-app.use('/', dogsRouter);
+app.use(logger("dev"));
+app.use("/", indexRouter);
+app.use("/owners", ownersRouter);
+app.use("/", authRoutes);
+app.use("/user", userRoutes);
+app.use("/", dogsRouter);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
@@ -78,8 +99,3 @@ app._router.stack.forEach((middleware) => {
 });
 
 module.exports = app;
-
-
-
-
-
