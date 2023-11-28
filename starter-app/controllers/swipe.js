@@ -1,5 +1,6 @@
 const Owner = require("../models/owner");
 const Dog = require("../models/dog");
+const owner = require("../models/owner");
 
 module.exports = {
   startSwiping,
@@ -10,10 +11,12 @@ module.exports = {
 
 
 async function nextDog(dogId){
-
   const currentDog = await Dog.findById(dogId);
+  if (!currentDog) {
+    console.log(`Dog with ID ${dogId} not found`);
+    return null;
+  }
   const dogs = await Dog.find({
-
     _id: {$ne: dogId},
     _id: {$nin: currentDog.likes},
     _id: {$nin: currentDog.dislikes},
@@ -30,14 +33,15 @@ async function like(req,res){
 
   try{
     await Dog.findByIdAndUpdate(dogId, {$addToSet:{ likes: likedDogId }});
-
+    const owner = await Owner.findById(req.params.ownerId)
+    const ownerId = owner._id
     const likedDog = await Dog.findById(likedDogId);
     if(likedDog.likes.includes(dogId)) {
       //match is found
     }
-    const nextDog = await nextDog(dogId);
+    const showNextDog = await nextDog(dogId);
     if(nextDog){
-      res.redirect('/swipe/${nextDog._id');
+      res.redirect(`/swipe/${showNextDog._id}`)
     } else{
       res.redirect('no')
     }
@@ -54,11 +58,6 @@ async function dislike(req,res){
 
   try{
     await Dog.findByIdAndUpdate(dogId, {$addToSet:{ dislikes: dislikedDogId }});
-
-    const likedDog = await Dog.findById(dislikedDogId);
-    if(dislikedDog.likes.includes(dogId)) {
-      //match is found
-    }
     const nextDog = await nextDog(dogId);
     if(nextDog){
       res.redirect('/swipe/${nextDog._id');
@@ -74,11 +73,12 @@ async function dislike(req,res){
 
 async function startSwiping (req, res) {
     try {
-     console.log('swipingDogId: ' + req.session.swipingDogId)
-     console.log('dogId: ' + req.session.dogId)
       req.session.swipingDogId = req.params.dogId;
-      res.render('swiping/swipe');
+      const firstDog = await nextDog(req.session.swipingDogId)
+      const owner = await Owner.findById(req.params.ownerId)
+      console.log(owner)
+      res.render('swiping/swipe', {dog: firstDog, owner: owner});
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };

@@ -1,3 +1,30 @@
 <%- include('../partials/header') %>
-    
+<section id="swipe-page">
+    <% if (dog) { %>
+      <div class="dog-profile">
+        <% dog.pictures.forEach(picture => { %>
+          <img src="/<%= picture %>" alt="Photo of <%= dog.name %>">
+        <% }); %>
+  
+        <h3><%= dog.name %></h3>
+        <p>Age: <%= dog.age %></p>
+        <p>Breed: <%= dog.breed %></p>
+        <p>Bio: <%= dog.bio %></p>
+  
+        <!-- Like Button -->
+        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>/like" method="POST">
+          <button type="submit">Like ❤️</button>
+        </form>
+  
+        <!-- Dislike Button -->
+        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>/dislike" method="POST">
+          <button type="submit">Dislike 💔</button>
+        </form>
+      </div>
+    <% } else { %>
+      <p>No more dogs to swipe on!</p>
+    <% } %>
+  </section>
+  
+  <%- include('../partials/footer') %>
 <%- include('../partials/footer') %>
