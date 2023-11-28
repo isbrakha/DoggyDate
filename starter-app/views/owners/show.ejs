@@ -27,12 +27,11 @@
             <button type="submit"><%= dog.name %> found ❤️ </button>
         </form>
       </div>
-    <% }); %>
     <div>Name: <%= dog.name %></div>
     <div>Age: <%= dog.age %></div>
-    <br>
+    <br><% }); %>
   </div>
-  <% }); %> <% } else { %>
+  <% } else { %>
   <p>You haven't added any dogs.</p>
   <% } %>
   <a href="/owners/<%= owner._id %>/dogs/new">Add Dog</a>
