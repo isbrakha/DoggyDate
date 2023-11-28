@@ -16,13 +16,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 
-
-
-
 const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const matchRoutes = require('./routes/matches')
 // require('dotenv').config();
 // require('./config/database');
 
@@ -76,6 +74,7 @@ app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
+app.use('/', matchRoutes);
 
 app.use(function(req, res, next) {
   next(createError(404));
