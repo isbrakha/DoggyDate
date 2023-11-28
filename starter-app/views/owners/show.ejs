@@ -1,25 +1,32 @@
 <%- include('../partials/header') %>
+
+<header>
+  <div class="wrapper">
+    <svg>
+      <text x="50%" y="50%" dy=".35em" text-anchor="middle">DoggyDate</text>
+    </svg>
+  </div>
+</header>
+<nav id="topButtonsID">
+  <a href="/logout">Log out here</a>
+</nav>
 <section id="show-page">
-  <div>Name: </div>
-  <div>
-    <%= owner.name %>
-  </div>
-  <div>Email: </div>
-  <div>
-    <%= owner.email %>
-  </div>
-  <h2> Your Dogs:</h2>
-  <% if (dogs.length > 0) { %>
-    <% dogs.forEach(dog => { %>
-      <div class="dog">
-        <% dog.pictures.forEach(picture => { %>
-          <img src="/uploads/<%= picture %>" alt="<%= dog.name %>">
-        <% }); %>
-        <div>Name: <%= dog.name %></div>
-      </div>
+  <div>Name: <%= owner.name %></div>
+  <br />
+  <div>Email: <%= owner.email %></div>
+  <h2>Your Dogs:</h2>
+  <% if (dogs.length > 0) { %> <% dogs.forEach(dog => { %>
+  <div class="dog">
+    <% dog.pictures.forEach(picture => { %>
+    <img src="/uploads/<%= picture %>" alt="<%= dog.name %>" />
     <% }); %>
-  <% } else { %>
-    <p>You havent added any dogs</p>
+    <div>Name: <%= dog.name %></div>
+    <div>Age: <%= dog.age %></div>
+    <br>
+  </div>
+  <% }); %> <% } else { %>
+  <p>You haven't added any dogs.</p>
   <% } %>
+  <a href="/owners/<%= owner._id %>/dogs/new">Add Dog</a>
 </section>
 <%- include('../partials/footer') %>

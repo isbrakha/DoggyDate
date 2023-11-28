@@ -47,7 +47,7 @@ nav a:hover,nav a:focus, nav a:active {
   -webkit-transform: skew(-10deg);
   transform: skew(-10deg);
 }
-
+/*  */
 #topButtonsID {
   /* grid-area: nav; */
   display: flex;
@@ -57,8 +57,8 @@ nav a:hover,nav a:focus, nav a:active {
   border-bottom: 7px double rgb(157, 32, 179);
   font-size: 30px;
   margin: 0;
-}
-
+} 
+/*  */
 main {
   display: grid;
   place-content: center;
@@ -83,6 +83,7 @@ main {
   border: 5px solid rgb(214, 123, 201);
   border-style: double none dashed none;
   border-radius: 25px;
+  font-size: 25px;
 }
 
 .loginClass {

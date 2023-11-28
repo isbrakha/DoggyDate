@@ -17,13 +17,13 @@ async function create(req, res) {
     const picPaths = req.files.map(function (file) {return file.path})
     const dogData = {...req.body}
     const owner = await Owner.findById(req.params.id)
-    dogData.owner = owner
+    dogData.owner = owner._id
     dogData.pictures = picPaths
     dogData.hasAkcCertification = !!dogData.hasAkcCertification
     
     try {
         const createdDog = await Dog.create(dogData)
-        res.redirect("dogs/new"), {errorMsg: "Dog created"}
+        res.redirect("/owners/" + dogData.owner), {errorMsg: "Dog created"}
     } catch(err) {
         console.log(err)
         res.render('dogs/new', {owner, errorMsg: err.message })
