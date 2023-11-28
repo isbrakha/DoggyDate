@@ -12,12 +12,8 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-
-
 
 const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');

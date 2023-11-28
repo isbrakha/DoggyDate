@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-
 const dogSchema = new Schema(
   {
     pictures: {type: [String], required: true},
