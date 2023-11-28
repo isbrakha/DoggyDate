@@ -19,17 +19,19 @@
     <% dogs.forEach(dog => { %>
       <div class="dog">
         <% dog.pictures.forEach(picture => { %>
+          <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
             <img src="/<%= picture %>" alt="<%= dog.name %>">
+          </a>
         <% }); %>
-        <div><%= dog.name %></div>
+        <div><%= dogs.name %></div>
         <a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update</a>
         <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
             <button type="submit"><%= dog.name %> found ❤️ </button>
         </form>
       </div>
     <% }); %>
-    <div>Name: <%= dog.name %></div>
-    <div>Age: <%= dog.age %></div>
+    <div>Name: <%= dogs.name %></div>
+    <div>Age: <%= dogs.age %></div>
     <br>
   </div>
   <% } else { %>

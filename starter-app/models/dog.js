@@ -14,7 +14,9 @@ const dogSchema = new Schema(
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Owner'
-    }
+    },
+    likes: [{ type: Schema.Types.ObjectId, ref: 'Dog' }],
+    dislikes: [{ type: Schema.Types.ObjectId, ref: 'Dog' }]
   }
 );
 
