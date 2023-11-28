@@ -13,9 +13,13 @@
     <% dogs.forEach(dog => { %>
       <div class="dog">
         <% dog.pictures.forEach(picture => { %>
-          <img src="/uploads/<%= picture %>" alt="<%= dog.name %>">
+            <img src="/<%= picture %>" alt="<%= dog.name %>">
         <% }); %>
-        <div>Name: <%= dog.name %></div>
+        <div><%= dog.name %></div>
+        <a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update</a>
+        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+            <button type="submit"><%= dog.name %> found ❤️ </button>
+        </form>
       </div>
     <% }); %>
   <% } else { %>

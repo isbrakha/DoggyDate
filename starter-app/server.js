@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 
 const session = require('express-session');
 const passport = require('passport');
@@ -22,11 +23,7 @@ const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-// require('dotenv').config();
-// require('./config/database');
 
-// const indexRouter = require('./routes/index');
-// const ownersRouter = require('./routes/owners');
 const dogsRouter = require('./routes/dogs')
 
 const app = express();
@@ -46,6 +43,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/uploads', express.static('uploads'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use(session({
   secret: process.env.SECRET,
