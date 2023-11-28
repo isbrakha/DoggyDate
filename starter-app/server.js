@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 
 const session = require('express-session');
 const passport = require('passport');
@@ -11,21 +12,16 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
 
 const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-const matchRoutes = require('./routes/matches')
-// require('dotenv').config();
-// require('./config/database');
+const swipeRoutes = require('./routes/swiping');
 
-// const indexRouter = require('./routes/index');
-// const ownersRouter = require('./routes/owners');
+
 const dogsRouter = require('./routes/dogs')
 
 const app = express();
@@ -44,7 +40,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/uploads', express.static('uploads'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use(session({
   secret: process.env.SECRET,
@@ -63,23 +59,19 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({
-  secret: 'your-random-secret',
-  resave: true,
-  saveUninitialized: true
-}));
-
+app.use('/', swipeRoutes);
 app.use(logger('dev'));
 app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
-app.use('/', matchRoutes);
-
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 app.use('/', dogsRouter)
+
+
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
+
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

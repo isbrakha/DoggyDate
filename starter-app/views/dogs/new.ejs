@@ -3,17 +3,17 @@
 <h2>Add Dog</h2>
 
 <form action="/owners/<%= owner._id %>/dogs" method="POST" enctype="multipart/form-data">
-    <label for="pictures"> Add pictures
+    <label for="pictures"> Add picture
         <input type="file" name="pictures" id="pictures" multiple>
     </label>
     <label for="name">Name:
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
     </label>
     <label for="age">Age:
-        <input type="number" name="age" id="age">
+        <input type="number" name="age" id="age" min="1" max="30" required>
     </label>
     <label for="weight">Weight:
-        <input type="number" name="weight" id="weight">
+        <input type="number" name="weight" id="weight" min="1">
     </label>
     <label for="breed">Breed:
         <input type="text" name="breed" id="breed">
@@ -28,11 +28,5 @@
         <button type="submit">Add Dog</button>
     </label>
 </form>
-
-<p><%= errorMsg %></p>
-
-
-
-
 
 <%- include('../partials/footer') %>
