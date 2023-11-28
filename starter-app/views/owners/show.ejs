@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<section id="show-page">
+  <div>Name: </div>
+  <div>
+    <%= owner.name %>
+  </div>
+  <div>Email: </div>
+  <div>
+    <%= owner.email %>
+  </div>
+  <h2> Your Dogs:</h2>
+  <% if (dogs.length > 0) { %>
+    <% dogs.forEach(dog => { %>
+      <div class="dog">
+        <% dog.pictures.forEach(picture => { %>
+          <img src="/uploads/<%= picture %>" alt="<%= dog.name %>">
+        <% }); %>
+        <div>Name: <%= dog.name %></div>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p>You havent added any dogs</p>
+  <% } %>
+</section>
+<%- include('../partials/footer') %>

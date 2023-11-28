@@ -2,9 +2,9 @@ const Owner = require("../models/owner");
 const Dog = require("../models/dog");
 
 module.exports = {
-    index,
     new: newOwner,
-    create
+    create,
+    show
 };
 
 function newOwner(req,res){
@@ -29,12 +29,13 @@ async function create(req,res){
 
 }
 
-async function index(req, res){
-    try{
-        const results = await Owner.find({});
-        res.render("owners/index",{title: "profile", owner: results});
-    } catch(err){
-        console.log(err.message);
-        res.redirect("/");
+async function show(req, res) {
+    try {
+        const owner = await Owner.findById(req.params.id);
+        const dogs = await Dog.find({ owner: owner._id });
+        res.render('owners/show', { owner, dogs });
+    } catch (err) {
+        console.log(err);
+        res.redirect('/');
     }
 }
