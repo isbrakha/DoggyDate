@@ -11,6 +11,6 @@ router.get("/new", ownersCtrl.new);
 
 router.post("/",ownersCtrl.create);
 
-router.get("/", ownersCtrl.index);
+router.get('/:id', ownersCtrl.show)
 
 module.exports = router;

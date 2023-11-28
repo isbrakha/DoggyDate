@@ -1,8 +1,4 @@
 body {
   background-image: radial-gradient(circle at center, #dfe9fbff, #6e9be7ff);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
