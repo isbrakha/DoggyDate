@@ -14,7 +14,6 @@ require('./config/passport');
 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 
 
 
@@ -65,11 +64,6 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({
-  secret: 'your-random-secret',
-  resave: true,
-  saveUninitialized: true
-}));
 
 app.use(logger('dev'));
 app.use('/', indexRouter);
