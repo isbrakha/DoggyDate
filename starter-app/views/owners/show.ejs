@@ -14,11 +14,19 @@
   <div>Name: <%= owner.name %></div>
   <br />
   <div>Email: <%= owner.email %></div>
-  <h2>Your Dogs:</h2>
-  <% if (dogs.length > 0) { %> <% dogs.forEach(dog => { %>
-  <div class="dog">
-    <% dog.pictures.forEach(picture => { %>
-    <img src="/uploads/<%= picture %>" alt="<%= dog.name %>" />
+  <h2> Your Dogs:</h2>
+  <% if (dogs.length > 0) { %>
+    <% dogs.forEach(dog => { %>
+      <div class="dog">
+        <% dog.pictures.forEach(picture => { %>
+            <img src="/<%= picture %>" alt="<%= dog.name %>">
+        <% }); %>
+        <div><%= dog.name %></div>
+        <a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update</a>
+        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+            <button type="submit"><%= dog.name %> found ❤️ </button>
+        </form>
+      </div>
     <% }); %>
     <div>Name: <%= dog.name %></div>
     <div>Age: <%= dog.age %></div>
