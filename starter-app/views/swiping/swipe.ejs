@@ -11,13 +11,13 @@
         <p>Breed: <%= dog.breed %></p>
         <p>Bio: <%= dog.bio %></p>
   
-        <!-- Like Button -->
-        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>/like" method="POST">
+  
+        <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/like/<%= dog._id %>" method="POST">
           <button type="submit">Like ❤️</button>
         </form>
   
-        <!-- Dislike Button -->
-        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>/dislike" method="POST">
+    
+        <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/dislike/<%= dog._id %>" method="POST">
           <button type="submit">Dislike 💔</button>
         </form>
       </div>
