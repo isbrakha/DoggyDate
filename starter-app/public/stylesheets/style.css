@@ -105,6 +105,17 @@ main {
   border-radius: 25px;
 }
 
+.dog{
+  display: flex;
+  justify-content: space-around;
+}
+
+.dog img{
+  width: 100px;
+  height: auto;
+}
+
+
 form {
   text-align: center;
 }
