@@ -15,26 +15,28 @@
         <div class="ownerName"><%= owner.name %></div>&nbsp;&nbsp;
     </div>
   </header>
+
   <% if (dogs.length > 0) { %>
     <br><h2>Your Dogs:</h2>	
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
         <% dog.pictures.forEach(picture => { %>
           <div class="imgContainer">
-            <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass"></div>
-        <% }); %>
-        <% if (dog.length <= 1) { %>
-          Woof! I'm <%= dog.name %>, <%= dog.age %> years old,<br>living in <%=dog.city %>.<br>
+            <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+          </div>
+        <% }) %>
 
-        <% } else if (dog.length = 2) { %>
-          Woof! I'm <%= dog.name %>, a playful dog living in <%=dog.city %>.<br>
-
-        <% } else if (dog.length <= 5) { %>
-          Woof! I'm <%= dog.name %>, a mature dog living in <%=dog.city %>.<br>
-
-        <% } else { %>
-          Woof! I'm <%= dog.name %>, a wise dog living in <%=dog.city %>.<br>
+        <% if (dog.age <= 3) { %>
+          Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else if (dog.age <= 6) { %>
+          <%= dog.name %> here—a playful, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else { %>
+          It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
         <% } %>
+  
+
         <section class="buttonsWrapper">
         <button class="buttonsUpdateDelete"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update <%= dog.name %></a></button>
         
