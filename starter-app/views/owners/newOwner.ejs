@@ -3,13 +3,13 @@
 
 <form action="/owners" method="POST">
     <label>Full Name:
-        <input type="text" name="fullName">
+        <input type="text" name="fullName" required>
     </label>
     <label>User Name:
-        <input type="text" name="userName">
+        <input type="text" name="userName" required>
     </label>
     <label>Age:
-        <input type="number" name="age">
+        <input type="number" name="age" min="18">
     </label>
     <label>Bio:
         <input type="text" name="bio">
@@ -18,11 +18,5 @@
         <button type="submit">Add pet</button>
     </label>
 </form>
-
-<p><%= errorMsg %></p>
-
-
-
-
 
 <%- include('../partials/footer') %>

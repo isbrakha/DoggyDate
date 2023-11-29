@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<header>
+  <div class="wrapper">
+    <svg>
+      <text x="50%" y="50%" dy=".35em" text-anchor="middle">DoggyDate</text>
+    </svg>
+  </div>
+</header>
+<nav id="topButtonsID">
+  <a href="/logout">Log out here</a>
+</nav>
+<section id="show-page">
+  <div>Name: <%= owner.name %></div>
+  <br />
+  <div>Email: <%= owner.email %></div>
+  <h2> Your Dogs:</h2>
+  <% if (dogs.length > 0) { %>
+    <% dogs.forEach(dog => { %>
+      <div class="dog">
+        <% dog.pictures.forEach(picture => { %>
+          <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
+            <img src="/<%= picture %>" alt="<%= dog.name %>">
+          </a>
+        <% }); %>
+        <div><%= dogs.name %></div>
+        <a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update</a>
+        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+            <button type="submit"><%= dog.name %> found ❤️ </button>
+        </form>
+      </div>
+    <% }); %>
+    <div>Name: <%= dogs.name %></div>
+    <div>Age: <%= dogs.age %></div>
+    <br>
+  </div>
+  <% } else { %>
+  <p>You haven't added any dogs.</p>
+  <% } %>
+  <a href="/owners/<%= owner._id %>/dogs/new">Add Dog</a>
+</section>
+<%- include('../partials/footer') %>
