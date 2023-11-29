@@ -7,8 +7,8 @@ body {
   background-image: linear-gradient(
   255deg,
   hsl(169deg 100% 67%) 0%,
-  hsl(239deg 77% 79%) 50%,
-  hsl(279deg 100% 50%) 100%);
+  hsl(239, 65%, 83%) 50%,
+  hsl(278, 22%, 54%) 100%);
   margin: 0;
   height: 120vh;
   /* padding: 0; */
@@ -105,9 +105,114 @@ main {
   border-radius: 25px;
 }
 
+.buttonsUpdateDelete {
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: purple;
+  background-color: rgb(251, 255, 0);
+}
+
+.buttonsDelete {
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+  color: rgb(251, 255, 0);
+}
+
+/* body > #show-page {
+  background-image: url(/images/dogbackground.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: auto;
+} */
+
+#show-page {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  color: purple;
+  /* border: 5px double rgb(214, 123, 201); */
+}
+
+.ownerName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
 form {
   text-align: center;
 }
+
+.updatePage {
+  /* overflow: hidden; */
+  /* background-size: 200px; */
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  
+  height: 100vh;
+  margin: 0;
+  color: purple;
+}
+
+.addPage {
+  /* overflow: hidden; */
+  /* background-size: 200px; */
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  color: purple;
+}
+
+.aboutDogClass {
+  text-align: center;
+  margin-bottom: 10px;
+  /* font-size: 20px */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgClass {
+  width: 150px;
+  height: 150px;
+  padding-bottom: 5px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+/* .updateDog {
+  align-items: right;
+  justify-content: right;
+} */
 
 @import url("https://fonts.googleapis.com/css2?family=Glory&display=swap");
 svg {
@@ -117,23 +222,24 @@ svg {
 svg text {
 	animation: stroke 10s infinite alternate;
 	stroke-width: 2;
-	stroke: #D3D259;
+	stroke: #ffffff;
 	font-size: 65px;
   letter-spacing: 2px;
   text-anchor: middle;
 }
 @keyframes stroke {
 	0%   {
-		fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1);
+		fill: rgba(204,171,76,0); stroke: rgba(204,171,76,1);
 		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
 	}
-	70%  {fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1); }
-	80%  {fill: rgba(204,171,76,0); stroke: rgba(211,210,89,1); stroke-width: 3; }
+	70%  {fill: rgba(204,171,76,0); stroke: rgb(218, 218, 168); }
+	80%  {fill: rgba(204,171,76,0); stroke: rgb(211, 211, 167); stroke-width: 3; }
 	100% {
-		fill: rgba(204,171,76,1); stroke: rgba(211,210,89,0);
+		fill: rgb(255, 255, 255); stroke: rgba(211,210,89,0);
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
 }
+
 .wrapper {
   width: 434px;
 }
