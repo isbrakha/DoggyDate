@@ -53,7 +53,7 @@ async function like (req, res) {
 
     const updatedLikedDog = await Dog.findById(likedDog._id)
     const mutualLike = updatedLikedDog.likes.includes(userDog._id)
-    console.log(mutualLike + 'mutualLike')
+    console.log(mutualLike + ' mutualLike')
     console.log(updatedLikedDog + " updated dog")
 
     if( mutualLike ) console.log('MATCHED!')
