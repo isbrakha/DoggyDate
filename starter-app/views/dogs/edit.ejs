@@ -1,31 +1,36 @@
 <%- include('../partials/header') %>
-
-<h2>Update Dog</h2>
-
+<div class="updatePage" id="updatePageID"><br><br><br><br><br><br><br><br><br>
 <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=PUT" method="POST">
-    
-    <label for="name"> Edit Name:
+    <h2>Update Your Dog♡🐾</h2><br>
+    <div class="updateDog">
+    <label for="name">&nbsp;&nbsp;Edit Name:
         <input type="text" name="name" id="name">
-    </label>
-    <label for="age"> Edit Age:
-        <input type="number" name="age" id="age">
-    </label>
+    </label><br><br>
+    <label for="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit Age:
+        <input type="number" name="age" id="age" min="1">
+    </label><br><br>
+    <label for="city">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit City:
+        <input type="text" name="city" id="city">
+    </label><br><br>
     <label for="weight">Edit Weight:
-        <input type="number" name="weight" id="weight">
-    </label>
-    <label for="breed">Edit Breed:
+        <input type="number" name="weight" id="weight" min="1">
+    </label><br><br>
+    <label for="breed">&nbsp;&nbsp;Edit Breed:
         <input type="text" name="breed" id="breed">
-    </label>
-    <label for="bio">Edit Bio:
+    </label><br><br>
+    <label for="bio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit Bio:
         <input type="text" name="bio" id="bio">
-    </label>
+    </label><br><br></div>
     <label for="hasAkcCertification">AKC Certification:
         <input type="checkbox" name="hasAkcCertification" id="hasAkcCertification">
-    </label>
-        <button type="submit">Update Dog</button>
+    </label><br><br><a href="/owners/<%= owner._id %>">⇤Go back↩</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<button type="submit">Update Dog ฅ՞•ﻌ•՞ฅ</button>
+        <section><br><br>
+            <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/login">Log out</a>
+        </section>
 </form>
-
-
+</div>
 
 
 
