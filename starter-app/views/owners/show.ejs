@@ -20,6 +20,7 @@
     <br><h2>Your Dogs:</h2>	
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
+        <% dog.pictures.forEach(picture => { %>
           <div class="imgContainer">
            <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
               <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
