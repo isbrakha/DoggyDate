@@ -8,9 +8,6 @@ module.exports = {
   dislike,
 }
 
-
-
-
 async function startSwiping (req, res) {
   try {
     const userDog = await Dog.findById(req.params.dogId)
@@ -47,7 +44,9 @@ async function like (req, res) {
     console.log(mutualLike + ' mutualLike')
     console.log(updatedLikedDog + " updated dog")
 
-    if( mutualLike ) console.log('MATCHED!')
+    if( mutualLike ){
+      console.log('MATCHED!')
+    };
 
     res.redirect(`/owners/${req.params.ownerId}/dogs/${userDog._id}/swipe`);
   } catch (err) {
