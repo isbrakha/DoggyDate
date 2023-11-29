@@ -20,12 +20,13 @@
     <br><h2>Your Dogs:</h2>	
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
-        <% dog.pictures.forEach(picture => { %>
           <div class="imgContainer">
-            <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+           <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
+              <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+            </a>
           </div>
-        <% }) %>
-
+        <% }); %>
+        
         <% if (dog.age <= 3) { %>
           Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
         
@@ -36,10 +37,8 @@
           It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
         <% } %>
   
-
         <section class="buttonsWrapper">
         <button class="buttonsUpdateDelete"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update <%= dog.name %></a></button>
-        
         <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
             <button class="buttonsDelete" type="submit">&nbsp;Delete <%= dog.name %></button>
         </form>
@@ -56,7 +55,6 @@
   <br>
   <section>
     <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login">Log out</a>
-  </section>
 </section>
 </body>
 </html>

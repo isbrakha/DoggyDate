@@ -19,6 +19,8 @@ const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const swipeRoutes = require('./routes/swiping');
+
 
 const dogsRouter = require('./routes/dogs')
 
@@ -38,7 +40,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/uploads', express.static('uploads'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 app.use(session({
@@ -58,13 +59,14 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+app.use('/', swipeRoutes);
 app.use(logger('dev'));
 app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
 app.use('/', dogsRouter)
+
 
 // app.use(function(req, res, next) {
 //   next(createError(404));
