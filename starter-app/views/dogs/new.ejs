@@ -1,32 +1,39 @@
 <%- include('../partials/header') %>
-
-<h2>Add Dog</h2>
-
+<div class="addPage" id="addPageID"><br><br><br><br>
 <form action="/owners/<%= owner._id %>/dogs" method="POST" enctype="multipart/form-data">
-    <label for="pictures"> Add picture
+    <h2>Add Your Dog♡🐾</h2><br><br><br>
+    <div class="addDog">
+    <label for="pictures">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add picture:
         <input type="file" name="pictures" id="pictures" multiple>
-    </label>
+    </label><br><br>
     <label for="name">Name:
-        <input type="text" name="name" id="name" required>
-    </label>
+        <input type="text" name="name" id="name" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </label><br><br>
     <label for="age">Age:
-        <input type="number" name="age" id="age" min="1" max="30" required>
-    </label>
+        <input type="number" name="age" id="age" min="1" required>&nbsp;&nbsp;&nbsp;&nbsp;
+    </label><br><br>
+    <label for="city">City:
+        <input type="text" name="city" id="city" required>&nbsp;&nbsp;&nbsp;&nbsp;
+    </label><br><br>
     <label for="weight">Weight:
-        <input type="number" name="weight" id="weight" min="1">
-    </label>
+        <input type="number" name="weight" id="weight" min="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </label><br><br>
     <label for="breed">Breed:
-        <input type="text" name="breed" id="breed">
-    </label>
+        <input type="text" name="breed" id="breed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </label><br><br>
     <label for="bio">Bio:
-        <input type="text" name="bio" id="bio">
-    </label>
+        <input type="text" name="bio" id="bio">&nbsp;&nbsp;&nbsp;
+    </label><br><br></div>
     <label for="hasAkcCertification">AKC Certification:
         <input type="checkbox" name="hasAkcCertification" id="hasAkcCertification">
-    </label>
-    <label>
-        <button type="submit">Add Dog</button>
-    </label>
+    </label><br><br><a href="/owners/<%= owner._id %>">⇤Go back↩</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<button type="submit">Add Dog ฅ՞•ﻌ•՞ฅ</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <section><br><br>
+        <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/login">Log out</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </section>
 </form>
+</div>
+
 
 <%- include('../partials/footer') %>
