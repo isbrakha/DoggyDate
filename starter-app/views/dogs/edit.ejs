@@ -7,10 +7,13 @@
         <input type="text" name="name" id="name">
     </label><br><br>
     <label for="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit Age:
-        <input type="number" name="age" id="age">
+        <input type="number" name="age" id="age" min="1">
+    </label><br><br>
+    <label for="city">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit City:
+        <input type="text" name="city" id="city">
     </label><br><br>
     <label for="weight">Edit Weight:
-        <input type="number" name="weight" id="weight">
+        <input type="number" name="weight" id="weight" min="1">
     </label><br><br>
     <label for="breed">&nbsp;&nbsp;Edit Breed:
         <input type="text" name="breed" id="breed">
@@ -21,7 +24,7 @@
     <label for="hasAkcCertification">AKC Certification:
         <input type="checkbox" name="hasAkcCertification" id="hasAkcCertification">
     </label><br><br><a href="/owners/<%= owner._id %>">⇤Go back↩</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;<button type="submit">Update Dog ฅ՞•ﻌ•՞ฅ</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<button type="submit">Update Dog ฅ՞•ﻌ•՞ฅ</button>
         <section><br><br>
             <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="/login">Log out</a>

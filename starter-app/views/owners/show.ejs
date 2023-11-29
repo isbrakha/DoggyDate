@@ -6,35 +6,43 @@
     <title>DoggyDate</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
+  <body>
 <section id="show-page">
   <header>
     <div class="wrapper">
       <svg>
-        <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text>
-        <div class="ownerName"><%= owner.name %></div>
-        <div>
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text></svg>
+        <div class="ownerName"><%= owner.name %></div>&nbsp;&nbsp;
     </div>
   </header>
   <% if (dogs.length > 0) { %>
     <br><h2>Your Dogs:</h2>	
     <% dogs.forEach(dog => { %>
-
-      <div class="dog">
+      <div class="aboutDogClass">
         <% dog.pictures.forEach(picture => { %>
-            <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+          <div class="imgContainer">
+            <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass"></div>
         <% }); %>
-        <div>- <%= dog.name %></div>
-        <div>- <%= dog.age %> years old</div><br>
+        <% if (dog.length <= 1) { %>
+          Woof! I'm <%= dog.name %>, <%= dog.age %> years old,<br>living in <%=dog.city %>.<br>
 
-        <section>
+        <% } else if (dog.length = 2) { %>
+          Woof! I'm <%= dog.name %>, a playful dog living in <%=dog.city %>.<br>
+
+        <% } else if (dog.length <= 5) { %>
+          Woof! I'm <%= dog.name %>, a mature dog living in <%=dog.city %>.<br>
+
+        <% } else { %>
+          Woof! I'm <%= dog.name %>, a wise dog living in <%=dog.city %>.<br>
+        <% } %>
+        <section class="buttonsWrapper">
         <button class="buttonsUpdateDelete"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update <%= dog.name %></a></button>
-        <br>
+        
         <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
             <button class="buttonsDelete" type="submit">&nbsp;Delete <%= dog.name %></button>
         </form>
       </section>
-      
-      </div><br>
+      </div>
     <br><% }); %>
   </div>
   <button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
@@ -48,6 +56,5 @@
     <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login">Log out</a>
   </section>
 </section>
-
 </body>
 </html>
