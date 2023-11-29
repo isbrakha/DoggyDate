@@ -17,7 +17,8 @@ const dogSchema = new Schema(
       ref: 'Owner'
     },
     likes: [{ type: Schema.Types.ObjectId, ref: 'Dog' }],
-    dislikes: [{ type: Schema.Types.ObjectId, ref: 'Dog' }]
+    dislikes: [{ type: Schema.Types.ObjectId, ref: 'Dog' }],
+    matchedWith: [{ type: Schema.Types.ObjectId, ref: 'Dog' }]
   }
 );
 

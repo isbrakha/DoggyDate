@@ -20,7 +20,7 @@ const ownersRouter = require('./routes/owners');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const swipeRoutes = require('./routes/swiping');
-
+const matchesRouter = require('./routes/matches')
 
 const dogsRouter = require('./routes/dogs')
 
@@ -59,6 +59,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/', matchesRouter)
 app.use('/', swipeRoutes);
 app.use(logger('dev'));
 app.use('/', indexRouter);
@@ -66,6 +67,7 @@ app.use('/owners', ownersRouter);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
 app.use('/', dogsRouter)
+
 
 
 // app.use(function(req, res, next) {
