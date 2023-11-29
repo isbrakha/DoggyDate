@@ -41,15 +41,6 @@ async function like (req, res) {
       $push: { likes: likedDog._id }
     });
 
-    // const otherDogLikes = likedDog.likes.includes(userDog._id);
-    // const userDogLikes =  userDog.likes.includes(likedDog._id);
-
-    // if(userDogLikes && otherDogLikes) {
-
-    //   console.log('matched!');
-    // } else {
-    //   console.log('No match or issue with data.');
-    // }
 
     const updatedLikedDog = await Dog.findById(likedDog._id)
     const mutualLike = updatedLikedDog.likes.includes(userDog._id)
@@ -57,7 +48,6 @@ async function like (req, res) {
     console.log(updatedLikedDog + " updated dog")
 
     if( mutualLike ) console.log('MATCHED!')
-
 
     res.redirect(`/owners/${req.params.ownerId}/dogs/${userDog._id}/swipe`);
   } catch (err) {
