@@ -1,42 +1,61 @@
-<%- include('../partials/header') %>
-
-<header>
-  <div class="wrapper">
-    <svg>
-      <text x="50%" y="50%" dy=".35em" text-anchor="middle">DoggyDate</text>
-    </svg>
-  </div>
-</header>
-<nav id="topButtonsID">
-  <a href="/logout">Log out here</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoggyDate</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
 <section id="show-page">
-  <div>Name: <%= owner.name %></div>
-  <br />
-  <div>Email: <%= owner.email %></div>
-  <h2> Your Dogs:</h2>
+  <header>
+    <div class="wrapper">
+      <svg>
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text></svg>
+        <div class="ownerName"><%= owner.name %></div>&nbsp;&nbsp;
+    </div>
+  </header>
+
   <% if (dogs.length > 0) { %>
+    <br><h2>Your Dogs:</h2>	
     <% dogs.forEach(dog => { %>
-      <div class="dog">
+      <div class="aboutDogClass">
         <% dog.pictures.forEach(picture => { %>
-          <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
-            <img src="/<%= picture %>" alt="<%= dog.name %>">
-          </a>
+          <div class="imgContainer">
+           <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
+              <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+            </a>
+          </div>
         <% }); %>
-        <div><%= dogs.name %></div>
-        <a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update</a>
+        
+        <% if (dog.age <= 3) { %>
+          Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else if (dog.age <= 6) { %>
+          <%= dog.name %> here—a playful, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else { %>
+          It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
+        <% } %>
+  
+        <section class="buttonsWrapper">
+        <button class="buttonsUpdateDelete"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update <%= dog.name %></a></button>
         <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
-            <button type="submit"><%= dog.name %> found ❤️ </button>
+            <button class="buttonsDelete" type="submit">&nbsp;Delete <%= dog.name %></button>
         </form>
+      </section>
       </div>
-    <% }); %>
-    <div>Name: <%= dogs.name %></div>
-    <div>Age: <%= dogs.age %></div>
-    <br>
+    <br><% }); %>
   </div>
-  <% } else { %>
-  <p>You haven't added any dogs.</p>
-  <% } %>
-  <a href="/owners/<%= owner._id %>/dogs/new">Add Dog</a>
+  <button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
+  <% } else { %><br><br><br><br><br><br><br><br><br><br><br><br>
+  <h3>You haven't added any dogs.</h3><button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
+  <% } %><br>
+  <div>You are currently logged in as:</div>
+  <div><%= owner.email %></div>
+  <br>
+  <section>
+    <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login">Log out</a>
 </section>
-<%- include('../partials/footer') %>
+</body>
+</html>
