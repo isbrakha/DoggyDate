@@ -1,19 +1,21 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica;
 }
 
 body {
-  background-image: linear-gradient(
-  255deg,
-  hsl(169deg 100% 67%) 0%,
-  hsl(239, 65%, 83%) 50%,
-  hsl(278, 22%, 54%) 100%);
+  background-image: linear-gradient(to left bottom, #a22ca1, #d82584, #f64461, #fe7140, #f49e25, #f8ac45, #fcb961, #ffc67b, #ffc8b2, #ffd8e3, #ffedfe, #ffffff);
   margin: 0;
-  height: 120vh;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* padding: 0; */
   /* overflow: hidden; */
-  border: 5px double rgb(214, 123, 201);
+  /* border: 5px double rgb(214, 123, 201); */
   /* display: grid;
   align-items: center; */
  /* grid-template-rows: 50px 1fr; */
@@ -207,6 +209,29 @@ form {
   gap: 10px;
   justify-content: center;
   text-align: center;
+  margin-top: 5px;
+}
+
+.refreshButton {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.noMoreDogs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%; /* Add this line */
+  box-sizing: border-box; /* Add this line */
+}
+
+#nameID {
+  margin-top: 5px;
 }
 
 /* .updateDog {
@@ -232,10 +257,10 @@ svg text {
 		fill: rgba(204,171,76,0); stroke: rgba(204,171,76,1);
 		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
 	}
-	70%  {fill: rgba(204,171,76,0); stroke: rgb(218, 218, 168); }
-	80%  {fill: rgba(204,171,76,0); stroke: rgb(211, 211, 167); stroke-width: 3; }
+	70%  {fill: rgba(204,171,76,0); stroke: #800000 }
+	80%  {fill: rgba(204,171,76,0); stroke: #770000; stroke-width: 3; }
 	100% {
-		fill: rgb(255, 255, 255); stroke: rgba(211,210,89,0);
+		fill: #7d0000; stroke: rgba(211,210,89,0);
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
 }
@@ -244,12 +269,61 @@ svg text {
   width: 434px;
 }
 
-@media only screen and (max-width: 600px) {
+
+
+@media only screen and (max-width: 300px) {
   body {
     width: 100%;
-    font-size: 18px;
-  }
-  .wrapper {
-    width: 95%;
+    font-size: 8px;
   }
 };
+
+@media only screen and (max-width: 375px) {
+  body {
+    width: 100%;
+    height: 180vh;
+    /* font-size: 18px; */
+  }
+  /* .wrapper {
+    width: 95%;
+  } */
+  /* .noMoreDogs {
+    width: auto
+  } */
+};
+
+@media only screen and (max-width: 600px) and (min-width: 376px) {
+  body {
+    width: 100%;
+    /* height: fit-content; */
+    font-size: 20px;
+    height: 100vh;
+}
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 601px) {
+  body {
+    width: 100%;
+    height: 100vh;
+    /* max-height: 200vh; */
+    font-size: 20px;
+    /* transform: scale(1.1); */
+      /* overflow: hidden; */
+}
+}
+
+@media only screen and (max-width: 1500px) and (min-width: 1001px) {
+  body {
+    width: 100%;
+    height: 100vh;
+    font-size: 20px;
+}
+}
+
+@media only screen and (min-width: 1500px) {
+  body {
+    width: 100%;
+    height: 100vh;
+    font-size: 20px;
+}
+}
