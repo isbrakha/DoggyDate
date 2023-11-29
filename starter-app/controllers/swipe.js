@@ -110,9 +110,9 @@ async function like (req, res) {
 async function dislike (req, res) {
   try {
     const userDog = await Dog.findById(req.params.userDogId)
-    const disklikedDog = await Dog.findById(req.params.dislikedDogId)
+    const dislikedDog = await Dog.findById(req.params.dislikedDogId)
     await Dog.findByIdAndUpdate(userDog._id, {
-      $push: { likes: dislikedDog._id }
+      $push: { dislikes: dislikedDog._id }
     });
 
     res.redirect(`/owners/${req.params.ownerId}/dogs/${userDog._id}/swipe`);

@@ -5,7 +5,7 @@ const swipeCtrl = require("../controllers/swipe")
 // router.get('/owners/:ownerId/dogs/:dogId/swipe/:viewedDog', swipeCtrl.nextDog); 
 router.get('/owners/:ownerId/dogs/:dogId/swipe', swipeCtrl.startSwiping);
 router.post('/owners/:ownerId/dogs/:userDogId/like/:likedDogId', swipeCtrl.like);
-router.post('/owners/:ownerId/dogs/:userDogId/like/:dislikedDogId', swipeCtrl.dislike);
+router.post('/owners/:ownerId/dogs/:userDogId/dislike/:dislikedDogId', swipeCtrl.dislike);
 // router.post('/owners/:ownerId/dogs/:otherDogId/like', swipeCtrl.like); 
 
 module.exports = router
