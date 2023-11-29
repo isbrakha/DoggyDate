@@ -8,6 +8,7 @@ module.exports = {
   dislike,
 }
 
+
 async function startSwiping (req, res) {
   try {
     const userDog = await Dog.findById(req.params.dogId)
