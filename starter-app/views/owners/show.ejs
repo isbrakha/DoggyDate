@@ -30,8 +30,8 @@
       </div>
     <br><% }); %>
   </div>
-  <button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new" class="no-underline">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
+  
   <% } else { %>
-  <h3 class="noDogsPadding">You haven't added any dogs.</h3><button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
+  <h3 class="noDogsPadding">You haven't added any dogs.</h3><button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new" class="buttonAddDogs">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
   <% } %>
 <%- include('../partials/footer') %>

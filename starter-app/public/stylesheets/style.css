@@ -132,7 +132,7 @@ nav a:hover,nav a:focus, nav a:active {
 
 .haveAccText {
   color: rgb(0, 0, 0);
-  padding-top: 3px;
+  padding-top: 7px;
   font-family: 'Courier New', Courier;
   font-weight: bold;
   font-size: 17px;
@@ -289,6 +289,7 @@ main {
   border-bottom-right-radius: 30px; */
   font-family: 'Courier New', Courier;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .buttonAddDogs:hover {
@@ -306,6 +307,9 @@ a.no-underline {
 .noDogsPadding {
   padding-top: 50px;
   padding-bottom: 20px;
+ 
+  font-family: 'Courier New', Courier;
+  font-weight: bold;
 }
 
 /* form {
@@ -423,6 +427,8 @@ a.no-underline {
   z-index: 1002;
   overflow: auto;
 }
+
+
 
 
 @media only screen and (max-width: 300px) {
