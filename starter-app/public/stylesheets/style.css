@@ -5,7 +5,8 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, #a22ca1, #ac5ebb, #b986d1, #c8ace3, #dcd0f1, #dcd0f1, #dcd0f1, #dcd0f1, #c8ace3, #b986d1, #ac5ebb, #a22ca1);
+  background-image: linear-gradient(to right top, #FF5200, #FF153F, #FF006B, #F40096, #CE00BF, #B400D3, #8C0BE9, #3927FF, #4C37FE, #5B46FE
+  , #6853FC, #745FFB);
   margin: 0;
   height: auto;
   min-height: 100vh;
@@ -132,7 +133,7 @@ nav a:hover,nav a:focus, nav a:active {
 
 .haveAccText {
   color: rgb(0, 0, 0);
-  padding-top: 3px;
+  padding-top: 7px;
   font-family: 'Courier New', Courier;
   font-weight: bold;
   font-size: 17px;
@@ -289,6 +290,7 @@ main {
   border-bottom-right-radius: 30px; */
   font-family: 'Courier New', Courier;
   font-weight: bold;
+  
 }
 
 .buttonAddDogs:hover {
@@ -303,6 +305,13 @@ a.no-underline {
   text-decoration: none;
 }
 
+.noDogsPadding {
+  padding-top: 50px;
+  padding-bottom: 20px;
+ 
+  font-family: 'Courier New', Courier;
+  font-weight: bold;
+}
 
 /* form {
   text-align: center;
@@ -419,6 +428,8 @@ a.no-underline {
   z-index: 1002;
   overflow: auto;
 }
+
+
 
 
 @media only screen and (max-width: 300px) {
