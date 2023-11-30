@@ -24,6 +24,7 @@
     <% } else { %>
       <p>No more dogs to swipe on!</p>
     <% } %>
+    <button><a href="/owners/<%= owner._id %>/dogs/<%= userDog._id%>/matches">View <%= userDog.name%>'s Matches</button>
   </section>
   
 <%- include('../partials/footer') %>

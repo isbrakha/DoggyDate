@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const dogSchema = new Schema(
   {
-    pictures: {type: [String], required: true},
+    pictures: {type: String, required: true},
     name: {type: String, required: true},
     age: {type: Number, required: true},
     city: {type: String, required: true},
