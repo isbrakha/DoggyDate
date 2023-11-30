@@ -19,16 +19,7 @@
               <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
             </a>
           </div>
-    
-        <% if (dog.age <= 3) { %>
-          Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
-        
-          <% } else if (dog.age <= 6) { %>
-          <%= dog.name %> here—a playful, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
-        
-          <% } else { %>
-          It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
-        <% } %>
+          <p><%= dog.name %></p>
   
         <div class="buttonsWrapper">
         <button class="buttonUpdate"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit" class="no-underline">Update</a></button>
@@ -42,13 +33,5 @@
   <button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new" class="no-underline">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
   <% } else { %><br><br><br><br><br><br><br><br><br><br><br><br>
   <h3>You haven't added any dogs.</h3><button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
-  <% } %><br>
-  <p>Check your info <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">here</a>
-  </p>
-  <div id="light" class="white_content">You are currently logged in as: <%= owner.email %><br><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="no-underline">❌</a>
-  </div>
-  <div id="fade" class="black_overlay"></div>
-  <br>
-
-
+  <% } %>
 <%- include('../partials/footer') %>
