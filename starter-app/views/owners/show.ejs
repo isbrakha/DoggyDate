@@ -8,7 +8,9 @@
   </head>
   <body>
 <section id="show-page">
+  <%- include('../partials/header') %>
   <header>
+    
     <div class="wrapper">
       <svg>
         <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text></svg>
@@ -22,7 +24,7 @@
       <div class="aboutDogClass">
         <% dog.pictures.forEach(picture => { %>
           <div class="imgContainer">
-           <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
+            <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
               <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
             </a>
           </div>
@@ -51,6 +53,7 @@
   <% } else { %><br><br><br><br><br><br><br><br><br><br><br><br>
   <h3>You haven't added any dogs.</h3><button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
   <% } %><br>
+
   <div>You are currently logged in as:</div>
   <div><%= owner.email %></div>
   <br>
