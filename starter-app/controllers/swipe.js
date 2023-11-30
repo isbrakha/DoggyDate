@@ -22,8 +22,6 @@ async function startSwiping (req, res) {
     });
     const rndmInt = Math.floor(Math.random() * otherDogs.length)
     const otherDog = otherDogs[rndmInt]
-    console.log('hey ther' + otherDogs)
-    console.log(owner)
     res.render('swiping/swipe', {userDog: userDog, owner: owner, dog: otherDog});
   } catch (err) {
     console.log(err)
@@ -38,17 +36,16 @@ async function like (req, res) {
     await Dog.findByIdAndUpdate(userDog._id, {
       $push: { likes: likedDog._id }
     });
-
-
     const updatedLikedDog = await Dog.findById(likedDog._id)
     const mutualLike = updatedLikedDog.likes.includes(userDog._id)
-    console.log(mutualLike + ' mutualLike')
-    console.log(updatedLikedDog + " updated dog")
-
-    if( mutualLike ){
-      console.log('MATCHED!')
-    };
-
+    if( mutualLike ) {
+      await Dog.findByIdAndUpdate(userDog._id, {
+        $push: { matchedWith: likedDog._id }
+      })
+      await Dog.findByIdAndUpdate(likedDog._id, {
+        $push: { matchedWith: userDog._id }
+      })
+    }
     res.redirect(`/owners/${req.params.ownerId}/dogs/${userDog._id}/swipe`);
   } catch (err) {
     console.error(err);

@@ -14,14 +14,21 @@
     <div class="dogContainerRow">
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
-        <% dog.pictures.forEach(picture => { %>
           <div class="imgContainer">
            <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
-              <img src="/<%= picture %>" alt="<%= dog.name %>" class="imgClass">
+              <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
             </a>
           </div>
-        <% }); %>
-        <p><%= dog.name %></p>
+    
+        <% if (dog.age <= 3) { %>
+          Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else if (dog.age <= 6) { %>
+          <%= dog.name %> here—a playful, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
+        
+          <% } else { %>
+          It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
+        <% } %>
   
         <div class="buttonsWrapper">
         <button class="buttonUpdate"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit" class="no-underline">Update</a></button>
