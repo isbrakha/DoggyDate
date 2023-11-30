@@ -22,9 +22,26 @@
         </form>
       </div>
     <% } else { %>
-      <p>No more dogs to swipe on!</p>
+      <div class="noMoreDogs">
+      <p>No more dogs to swipe on!</p><br><br>
+      <div class="refreshButton">
+      <a href="/owners/<%= owner._id %>">⇤Go back↩</a>
+      <form onsubmit="window.location.reload();" method="get">
+        <button type="submit">Refresh the page</button>
+      </form>
+    </div><br><br>
+    <p>Enjoying the app?<br>Share it with your friends!</p>
+    <div class="refreshButton">
+    <button onclick="window.location.href='https://www.instagram.com'">Instagram</button>
+      <button onclick="window.location.href='https://www.facebook.com'">Facebook</button>
+    </div>
+    <section><br>
+      <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/login">Log out</a>
+  </section>
+  </div>
     <% } %>
+
   </section>
   
-  <%- include('../partials/footer') %>
 <%- include('../partials/footer') %>
