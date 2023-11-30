@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoggyDate</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-<section id="show-page">
+<%- include('../partials/header') %>
+
+<section class="showPage">
   <header>
     <div id="nameID">
       <svg>
         <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text></svg>
-        <div class="ownerName"><%= owner.name %></div>&nbsp;&nbsp;
+        <div class="ownerName"><%= owner.name %></div><br><br>
     </div>
   </header>
 
   <% if (dogs.length > 0) { %>
-    <br><h2>Your Dogs:</h2>	
+    <br><h2 class="yourDogName">Your Dogs:</h2>
+    <div class="dogContainerRow">
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
         <% dog.pictures.forEach(picture => { %>
@@ -27,35 +21,29 @@
             </a>
           </div>
         <% }); %>
-        
-        <% if (dog.age <= 3) { %>
-          Woof! I'm <%= dog.name %>, <%= dog.age %> years old dog<br>living in <%=dog.city %>.<br>
-        
-          <% } else if (dog.age <= 6) { %>
-          <%= dog.name %> here—a playful, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
-        
-          <% } else { %>
-          It's me, <%= dog.name %>—a wise, <%= dog.age %>-year-old dog<br>living in <%=dog.city %>.<br>
-        <% } %>
+        <p><%= dog.name %></p>
   
-        <section class="buttonsWrapper">
-        <button class="buttonsUpdateDelete"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit">Update <%= dog.name %></a></button>
+        <div class="buttonsWrapper">
+        <button class="buttonUpdate"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit" class="no-underline">Update</a></button>
         <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
-            <button class="buttonsDelete" type="submit">&nbsp;Delete <%= dog.name %></button>
+            <button class="buttonDelete" type="submit">Delete</button>
         </form>
-      </section>
+      </div>
       </div>
     <br><% }); %>
   </div>
-  <button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
+  <button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new" class="no-underline">Add more dogs ฅ՞•ﻌ•՞ฅ</a></button>
   <% } else { %><br><br><br><br><br><br><br><br><br><br><br><br>
-  <h3>You haven't added any dogs.</h3><button class="buttonsUpdateDelete"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
+  <h3>You haven't added any dogs.</h3><button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
   <% } %><br>
-  <div>You are currently logged in as:</div>
-  <div><%= owner.email %></div>
+  <p>Check your info <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">here</a>
+  </p>
+  <div id="light" class="white_content">You are currently logged in as: <%= owner.email %><br><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="no-underline">❌</a>
+  </div>
+  <div id="fade" class="black_overlay"></div>
   <br>
-  <section>
-    <a href="/">Sign up with different account?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login">Log out</a>
-</section>
-</body>
-</html>
+  <div class="haveAccText">
+    <a href="/">Sign up with different account?</a><span class="button-gap"></span><a href="/login">Log out</a>
+</div>
+
+<%- include('../partials/footer') %>
