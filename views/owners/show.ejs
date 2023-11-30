@@ -10,7 +10,7 @@
   </header>
 
   <% if (dogs.length > 0) { %>
-    <br><h2 class="yourDogName">Your Dogs:</h2>
+    <br><h2 class="yourDogName">Select dog to match:</h2>
     <div class="dogContainerRow">
     <% dogs.forEach(dog => { %>
       <div class="aboutDogClass">
@@ -19,7 +19,10 @@
               <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
             </a>
           </div>
-          <p><%= dog.name %></p>
+          <div class="petnamediv">
+            <p class="petname"><%= dog.name %></p>
+
+          </div>
   
         <div class="buttonsWrapper">
         <button class="buttonUpdate"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit" class="no-underline">Update</a></button>

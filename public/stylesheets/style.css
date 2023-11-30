@@ -58,7 +58,7 @@ svg text {
 }
 
 .formClass {
-  background-color: green;
+  
   display: grid;
   justify-content: center;
   align-items: center;
@@ -199,6 +199,17 @@ main {
 .yourDogName {
   font-family: 'Courier New', Courier;
   margin-bottom: 5px;
+  color: white;
+}
+
+.petname {
+  background-color: solid red;
+padding: 5px;
+
+}
+.petnamediv{
+  background-color: rgb(94, 148, 175);
+  border-radius: 30%;
 }
 
 .aboutDogClass {
@@ -252,6 +263,7 @@ main {
   border-top-left-radius: 10px;
   /* border-bottom-right-radius: 10px; */
   font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
 }
 
 .buttonUpdate:hover {
@@ -303,6 +315,7 @@ main {
 
 a.no-underline {
   text-decoration: none;
+  color: white;
 }
 
 .noDogsPadding {
@@ -347,9 +360,9 @@ a.no-underline {
   padding-right: 10px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: medium;
+  color: white;
 }
 .addAndUpdateContainers {
-  background-color: green;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -360,13 +373,17 @@ a.no-underline {
 .akcVerificationButton {
   font-size: medium;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
 }
 
 .chooseFileButton {
   padding-left: 62px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: medium;
+  color: white;
 }
+
+
 
 .rowButtons {
   display: flex;
@@ -390,6 +407,22 @@ a.no-underline {
   justify-content: center;
   text-align: center;
   margin-top: 5px;
+}
+
+.goBack{
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(225, 152, 164);
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  border-top-left-radius: 10px;
+  /* border-bottom-right-radius: 10px; */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
 }
 
 .noMoreDogs {
