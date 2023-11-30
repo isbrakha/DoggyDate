@@ -207,6 +207,11 @@ main {
 padding: 5px;
 
 }
+
+.mainWrapper {
+  background-color: #3927FF;
+}
+
 .petnamediv{
   background-color: rgb(94, 148, 175);
   border-radius: 30%;
