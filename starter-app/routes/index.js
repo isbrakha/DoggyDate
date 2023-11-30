@@ -35,10 +35,5 @@ router.get('/logout', function(req, res){
   });
 });
 
-// router.get('/logout', function(req, res) {
-//   req.logout()
-//   req.session = null
-//   res.redirect('/')
-// })
 
 module.exports = router;
