@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.get( '/login', function (req, res) {
+  res.render('login', {title: 'Login'}) 
+})
+
+
 router.get('/auth/google', passport.authenticate(
   'google',
   {
@@ -29,5 +34,11 @@ router.get('/logout', function(req, res){
     res.redirect('/');
   });
 });
+
+// router.get('/logout', function(req, res) {
+//   req.logout()
+//   req.session = null
+//   res.redirect('/')
+// })
 
 module.exports = router;

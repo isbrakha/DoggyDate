@@ -17,8 +17,6 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const ownersRouter = require('./routes/owners');
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
 const swipeRoutes = require('./routes/swiping');
 const matchesRouter = require('./routes/matches')
 
@@ -64,8 +62,6 @@ app.use('/', swipeRoutes);
 app.use(logger('dev'));
 app.use('/', indexRouter);
 app.use('/owners', ownersRouter);
-app.use('/', authRoutes);
-app.use('/user', userRoutes);
 app.use('/', dogsRouter)
 
 

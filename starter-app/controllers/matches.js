@@ -14,8 +14,7 @@ async function index (req, res) {
             model: 'Owner'
         }
     })
-    console.log(userDog)
-    res.render("swiping/matches", {title: 'Congrats you matched with', userDog: userDog})
+    res.render("swiping/matches", {userDog: userDog})
     } catch (err) {
         console.log(err)
         res.status(500).send('Server error')
