@@ -1,5 +1,10 @@
 const Owner = require("../models/owner");
 const Dog = require("../models/dog");
+const cloudinary = require('cloudinary').v2
+const streamifier = require('streamifier')
+
+const {clConfig} = require('../config/cloudinary')
+cloudinary.config(clConfig)
 
 module.exports = {
     new: newDog,
@@ -15,21 +20,27 @@ async function newDog (req, res) {
 }
 
 async function create(req, res) {
-    console.log(req.files)
-    console.log(req.body)
-    const picPaths = req.files.map(function (file) {return file.path})
+    console.log(req.file);
+    console.log(req.body);
+    const picPaths = req.file.path
     const dogData = {...req.body}
     const owner = await Owner.findById(req.params.id)
     dogData.owner = owner._id
-    dogData.pictures = picPaths
     dogData.hasAkcCertification = !!dogData.hasAkcCertification
+    const result = await streamUpload(req)
+    dogData.pictures = result.url
 
+
+    const createdDog = await Dog.create(dogData)
     try {
-        const createdDog = await Dog.create(dogData)
+    
         res.redirect("/owners/" + dogData.owner)
     } catch(err) {
         console.log(err)
+        console.log(req.file);
+        console.log(req.body);
         res.render('dogs/new', {owner, errorMsg: err.message })
+        
     }
 }
 
@@ -46,7 +57,6 @@ async function edit(req, res){
 async function updateDog(req,res){
     try {
         let updates = {};
-
         for (let key in req.body) {
             if (req.body[key] !== '' && req.body[key] !== null) {
                 updates[key] = req.body[key];
@@ -69,4 +79,17 @@ async function deleteDog(req,res){
         console.log(err)
         res.redirect('/')
     }
+}
+
+function streamUpload (req){
+    return new Promise(function (resolve, reject){
+        let stream = cloudinary.uploader.upload_stream( function(error, result){
+            if(result){
+                resolve(result)
+            }else{
+                reject(error)
+            }
+        });
+        streamifier.createReadStream(req.file.buffer).pipe(stream)
+    })
 }
