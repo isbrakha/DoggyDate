@@ -18,7 +18,7 @@ Introducing "DoggyDate," an app for dog owners to create profiles for their pets
 Javascript, Node.js, Multer, Streamifier, Cloudinary, Passport, Express, HTML, CSS, Mongoose, MongoDB, GoogleOAuth
 
 ## Deployed App
-https://dashboard.heroku.com/apps/doggydating/settings
+https://doggydating-c428b5defcd3.herokuapp.com/
 
 ## IceBox
 1. Get notification when match happens
