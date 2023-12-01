@@ -14,12 +14,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding: 0; */
-  /* overflow: hidden; */
-  /* border: 5px double rgb(214, 123, 201); */
-  /* display: grid;
-  align-items: center; */
- /* grid-template-rows: 50px 1fr; */
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Glory&display=swap");
@@ -85,7 +79,6 @@ svg text {
 
 nav a {
   color: #000000;
-  /* text-align: center; */
   font-family: "Comic Sans MS", cursive, sans-serif;
   letter-spacing: 2px;
   word-spacing: 2px;
@@ -144,38 +137,17 @@ main {
   place-content: center;
   width: 100vw;
   height: 100vh;
-  /*                        chech if needed to have it?? */
 }
 
-/* .formClass {
-  background-color: green;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-} */
-/* .wrapper {
-  width: 360px;
-  background-color: yellow;
-  border: 10px double rgb(112, 0, 0); 
-  border-radius: 100px;
-  text-align: center;
-  max-width: 100%;
-  margin: auto;
-} */
 .showPage {
-  /* background-color: green; */
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: flex; */
   flex-direction: column;
-  /* align-items: center;
   justify-content: center; */
-  /* height: 100vh; */
   margin: 0;
   color: purple;
-  /* border: 5px double rgb(214, 123, 201); */
 }
 
 #nameID {
@@ -220,7 +192,6 @@ padding: 5px;
 .aboutDogClass {
   text-align: center;
   margin-bottom: 10px;
-  /* font-size: 20px */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,11 +205,6 @@ padding: 5px;
 
 }
 
-/* .imgContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}                              not needed????*/
 
 .imgClass {
   width: 170px;
@@ -266,7 +232,6 @@ padding: 5px;
   border-radius: 25px;
   text-decoration: none;
   border-top-left-radius: 10px;
-  /* border-bottom-right-radius: 10px; */
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: white;
 }
@@ -285,7 +250,6 @@ padding: 5px;
   padding: 10px;
   font-size: 15px;
   border-radius: 25px;
-  /* border-bottom-left-radius: 10px; */
   border-top-left-radius: 10px;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
@@ -303,8 +267,6 @@ padding: 5px;
   padding: 15px;
   font-size: 17px;
   border-radius: 45px;
-  /* border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px; */
   font-family: 'Courier New', Courier;
   font-weight: bold;
   
@@ -331,13 +293,7 @@ a.no-underline {
   font-weight: bold;
 }
 
-/* form {
-  text-align: center;
-} */
-
 .updatePage {
-  /* overflow: hidden; */
-  /* background-size: 200px; */
   display: flexbox;
   flex-direction: column;
   align-items: center;
@@ -395,8 +351,6 @@ a.no-underline {
   gap: 30px;
 }
 .addPage {
-  /* overflow: hidden; */
-  /* background-size: 200px; */
   display: flexbox;
   flex-direction: column;
   align-items: center;
@@ -425,7 +379,6 @@ a.no-underline {
   border-radius: 25px;
   text-decoration: none;
   border-top-left-radius: 10px;
-  /* border-bottom-right-radius: 10px; */
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: white;
 }
@@ -436,8 +389,8 @@ a.no-underline {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%; /* Add this line */
-  box-sizing: border-box; /* Add this line */
+  width: 100%;
+  box-sizing: border-box; 
 }
 
 .black_overlay {
@@ -481,20 +434,12 @@ a.no-underline {
   body {
     width: 100%;
     height: 180vh;
-    /* font-size: 18px; */
   }
-  /* .wrapper {
-    width: 95%;
-  } */
-  /* .noMoreDogs {
-    width: auto
-  } */
 };
 
 @media only screen and (max-width: 600px) and (min-width: 376px) {
   body {
     width: 100%;
-    /* height: fit-content; */
     font-size: 20px;
     height: 100vh;
 }
@@ -504,25 +449,19 @@ a.no-underline {
   body {
     width: 100%;
     height: 100vh;
-    /* max-height: 200vh; */
-    /* font-size: 20px; */
-    /* transform: scale(1.1); */
-      /* overflow: hidden; */
-}
+  }
 }
 
 @media only screen and (max-width: 1500px) and (min-width: 1001px) {
   body {
     width: 100%;
     height: 100vh;
-    /* font-size: 20px; */
-}
+  }
 }
 
 @media only screen and (min-width: 1500px) {
   body {
     width: 100%;
     height: 100vh;
-    /* font-size: 20px; */
 }
 }
