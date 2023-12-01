@@ -5,7 +5,7 @@ Introducing "DoggyDate," an app for dog owners to create profiles for their pets
 1. Log or Sign up with google account
 2. Click on a dog to start matchin, or create a new dog
 3. Like / Dislike, or view your matches
-4. In the view matches page, you can contact yoour dog's matches owner
+4. In the view matches page, you can contact your dog's matches owner
 
 ## Screenshots
 ![](public/screenshots/home-page.png)
