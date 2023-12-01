@@ -7,6 +7,12 @@ Introducing "DoggyDate," an app for dog owners to create profiles for their pets
 3. Like / Dislike, or view your matches
 4. In the view matches page, you can contact your dog's matches owner
 
+# Trello Board
+![](public/edr-trello/trello.png)
+
+# EDR
+![](public/edr-trello/edr.png)
+
 ## Screenshots
 ![](public/screenshots/home-page.png)
 ![](public/screenshots/owner-page.png)
