@@ -84,7 +84,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
-  res.render('error', { title: 'Error Page' });
+  res.render('index/error', { title: 'Error Page' });
 });
 
 app._router.stack.forEach((middleware) => {
@@ -102,10 +102,7 @@ db.once('open', function () {
   console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
+ 
 module.exports = app;
 
 

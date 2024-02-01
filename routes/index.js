@@ -5,12 +5,12 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index')
+  res.render('index/signup', {showLogoutLink: false})
 });
 
 
 router.get( '/login', function (req, res) {
-  res.render('login', {title: 'Login'}) 
+  res.render('index/login', {title: 'Login'},{showLogoutLink: false}) 
 })
 
 
