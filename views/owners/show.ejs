@@ -1,40 +1,53 @@
 <%- include('../partials/header') %>
-
-<section class="showPage">
-  <header>
-    <div id="nameID">
-      <svg>
-        <text x="50%" y="50%" dy=".35em" text-anchor="middle">Welcome</text></svg>
-        <div class="ownerName"><%= owner.name %></div><br><br>
-    </div>
-  </header>
-
+  <div class="carousel">
   <% if (dogs.length > 0) { %>
-    <br><h2 class="yourDogName">Your Dogs:</h2>
-    <div class="dogContainerRow">
     <% dogs.forEach(dog => { %>
-      <div class="aboutDogClass">
-          <div class="imgContainer">
-           <a href="/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe">
-              <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
-            </a>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-image">
+            <img class="dog-img" src="<%= dog.pictures %>">
           </div>
-          <p id="dogName"><%= dog.name %></p>
-  
-        <div class="buttonsWrapper">
-        <button class="buttonUpdate"><a href="<%= owner._id %>/dogs/<%= dog._id %>/edit" class="no-underline">Update</a></button>
-        <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
-            <button class="buttonDelete" type="submit">Delete</button>
-        </form>
+          <div class="card-content">
+            <span class="card-title"><%= dog.name %></span>
+            <p><%= dog.bio %></p>
+          </div>
+          <div class="card-action">
+            <button class="match-button btn waves-effect waves-light"  onclick="location.href='/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe';">Match
+              <i class="fa fa-heart right"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      </div>
-    <br><% }); %>
+    <% }); %>
+  </div>
+  <div class="carousel-controls">
+    <i class="material-icons carousel-prev">navigate_before</i>
+    <i class="material-icons carousel-next">navigate_next</i>
   </div>
   
   <% } else { %>
   <h3 class="noDogsPadding">You haven't added any dogs.</h3>
   <% } %>
 
-  <button class="buttonAddDogs"><a href="/owners/<%= owner._id %>/dogs/new" class="no-underline">Add Dog ฅ՞•ﻌ•՞ฅ</a></button>
+
 
 <%- include('../partials/footer') %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.carousel');
+    let instances = M.Carousel.init(elems, {});
+  
+
+    let instance = M.Carousel.getInstance(elems[0]);
+  
+    document.querySelector('.carousel-prev').addEventListener('click', function() {
+      instance.prev(); 
+    });
+  
+    document.querySelector('.carousel-next').addEventListener('click', function() {
+      instance.next();
+    });
+  });
+  </script>
+  

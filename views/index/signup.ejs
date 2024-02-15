@@ -1,11 +1,26 @@
 <%- include('../partials/header') %>
-<div class="sign-up">
-  <div class="title-wrapper">
-    <img class="logo" src="/favicon.ico"/>
-    <h1 class="responsive-text center-align">DoggyDate</h1>
-  </div>
-  <div class="content-wrapper">
-      <a class="waves-effect btn-large cyan accent-1" href="/auth/google">Log in with Google</a>
-  </div>
-</div>
-<%- include('../partials/footer') %>
+      <div class="page-container">
+        <div></div>
+        <div class="title-wrapper">
+          <img class="logo" src="/favicon.ico"/>
+          <h1 class="title-text  center-align">DoggyDate</h1>
+        </div>
+        <div class="content-wrapper">
+            <a class="waves-effect btn-large cyan accent-1" href="/auth/google">Log in with Google</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const logo = document.querySelector('.logo');
+    const title = document.querySelector('.title-text');
+
+    logo.addEventListener('animationend', () => {
+        title.style.display = 'inline';
+        title.classList.add('typing');
+    });
+  });
+</script>

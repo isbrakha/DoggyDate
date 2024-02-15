@@ -1,22 +1,45 @@
-.logo{
-    height: 7rem;
-    width: auto;
-    margin-top: 1.5rem;
+.logo {
+    height: auto;
+    width: 35vmin;
+    animation: zoom-in-zoom-out 2s ease forwards;
+    position: relative;
 }
 
-.title-wrapper{
+.title-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+
 }
 
-.sign-up{
+.page-container { 
     display: flex;
     height: 100vh;
     justify-content: space-between;
     flex-direction: column;
+
 }
 
-.content-wrapper{
+.carousel{
+ height: auto;
+ min-height: 90vh;
+ width: 100%;
+ max-width: none
+
+}
+
+.carousel-item {
+    height: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    font-family: "Fredoka", sans-serif;
+    
+
+  }
+  
+.content-wrapper {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
@@ -24,7 +47,73 @@
     position: relative;
 }
 
-.btn-large{
+.btn-large {
     width: 50%;
     color: black;
+
+}
+
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(2, 2) rotate(0deg);
+    }
+    75% {
+        transform: scale(2,2)rotate(360deg);
+    }
+    100% {
+      transform: scale(1, 1) rotate(360deg);
+    }
+  }
+  
+  @keyframes typing {
+    0%, 100% {
+        border-right: .05em solid black;
+    }
+    99.9% {
+        border-color: black;
+    }
+    100% {
+        border-right: .05em solid transparent;
+    }
+    from { width: 0; }
+    to { width: 8ch; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+.typing {
+    border-right: .05em solid black;
+    display: inline block;
+    overflow: hidden;
+    animation: typing 1s steps(40, end), blink-caret .75s step-end;
+    animation-fill-mode: forwards;
+}
+
+.title-text {
+    display: none;
+    font-size: 12.5vmin;
+    position: relative;
+}
+
+
+.card-title{
+    text-align: center;
+    color: black;
+    font-weight: 700 !important;
+}
+
+.card-action{
+    display: flex;
+    justify-content: center;
+}
+
+.dog-img{
+    height: 40vmin;
+    width: auto
 }

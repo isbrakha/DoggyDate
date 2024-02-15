@@ -5,19 +5,15 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index/signup', {showLogoutLink: false})
+  res.render('index/signup')
 });
 
-
-router.get( '/login', function (req, res) {
-  res.render('index/login', {title: 'Login'},{showLogoutLink: false}) 
-})
 
 
 router.get('/auth/google', passport.authenticate(
   'google',
   {
-    scope: ['profile', 'email'],
+    scope: ['profile', 'email']
   }
 ));
 
@@ -34,6 +30,5 @@ router.get('/logout', function(req, res){
     res.redirect('/');
   });
 });
-
 
 module.exports = router;
