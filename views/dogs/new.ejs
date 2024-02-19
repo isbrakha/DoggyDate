@@ -1,57 +1,55 @@
 <%- include('../partials/header') %>
-<div class="updatePage" id="updatePageID">
-<form action="/owners/<%= owner._id %>/dogs" method="POST" enctype="multipart/form-data" class="addAndUpdateContainers">
-    <h2 class="yourDogName">Add Your Dog♡🐾</h2><br><br><br>
-    <label class="chooseFileButton" for="pictures">Add picture:
-        <input type="file" name="pictures" id="pictures" required>
-    </label><br>
-    <div class="addDogs">
-    <label for="name">Name:
-        <input type="text" name="name" id="name" required>
-    </label><br>
-    <label for="age">Age:
-        <input type="number" name="age" id="age" min="1" required>
-    </label><br>
-    <label for="city">City:
-        <input type="text" name="city" id="city" required>
-    </label><br>
-    <label for="weight">Weight:
-        <input type="number" name="weight" id="weight" min="1">
-    </label><br>
-    <label for="breed">Breed:
-        <input type="text" name="breed" id="breed">
-    </label><br>
-    <label for="bio">Bio:
-        <input type="text" name="bio" id="bio">
-    </label><br></div>
-    <label class="akcVerificationButton" for="hasAkcCertification">AKC Certification:
-        <input type="checkbox" name="hasAkcCertification" id="hasAkcCertification">
-    </label><br><br>
-    <div class="rowButtons">
-        <button type="submit" class="buttonAddDogs">Add Dog ฅ՞•ﻌ•՞ฅ</button>
-    </div>
-    <br>
-    <div class="goBack">
-        <a href="/owners/<%= owner._id %>">⇤Go back↩</a>
-    </div>
-    <div class="haveAccText">
-        <a href="/logout">Log out</a>
-     </div>
-</form>
-
-
-</main>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="row">
+    <h3 class="editAddTitle">Add Your New Dog</h3>
+<form action="/owners/<%= owner._id %>/dogs" method="POST" enctype="multipart/form-data" class="col s12">
+      <div class="row">
+        <div class = "file-field input-field">
+            <div class = "btn">
+               <span>Select Photo</span>
+               <input type="file" name="pictures" id="pictures" required>
+            </div>
+            
+            <div class = "file-path-wrapper">
+               <input class = "file-path validate" type = "text"
+                  placeholder = "Upload file" />
+            </div>
+         </div>
+        <div class="input-field col s6">
+          <input name="name" type="text" class="validate" required>
+          <label class="white-text"for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="age" type="number" class="validate" required>
+          <label class="white-text"for="age">Age</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="city" type="text" class="validate" required>
+          <label class="white-text" for="city">City</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="weight" type="number" class="validate" required>
+          <label class="white-text" for="weight">Weight &#40;lbs&#41;</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="breed" type="text" class="validate" required>
+          <label class="white-text" for="breed">Breed</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="bio" type="text" class="validate" required>
+          <label class="white-text" for="bio">Bio</label>
+        </div>
+        <p class="akcBox">
+            <label class="white-text" for="hasAkcCertification" required>
+                <input name="hasAkcCertification" type="checkbox" class="filled-in" id="hasAkcCertification"/>
+                <span>Is AKC Certified</span>
+            </label>
+        </p>
+        <div>
+            <button class="btn waves-effect waves-light dogUpdate" type="submit" name="action">Submit
+                <i class="material-icons right">pets</i>
+            </button>
+        </div>
+      </div>
+    </form>
+  </div>
+<%- include('../partials/footer') %>
