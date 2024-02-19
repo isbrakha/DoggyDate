@@ -51,13 +51,18 @@ async function edit(req, res){
 async function updateDog(req,res){
     try {
         let updates = {};
+        if (req.body.hasAkcCertification === 'on') {
+            req.body.hasAkcCertification = true
+        } else {
+            req.body.hasAkcCertification = false
+        }
         for (let key in req.body) {
             if (req.body[key] !== '' && req.body[key] !== null) {
                 updates[key] = req.body[key];
             }
         }
         const updatedDog = await Dog.findByIdAndUpdate(req.params.dogId, updates, {new: true})
-        res.redirect('/owners/' + req.params.ownerId)
+        res.redirect(`/owners/${req.params.ownerId}?editedDogId=${req.params.dogId}`)
     } catch(err) {
         console.log(err)
         res.redirect('/')

@@ -1,31 +1,44 @@
 <%- include('../partials/header') %>
-<div class="updatePage" id="updatePageID">
-<form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=PUT" method="POST" class="addAndUpdateContainers">
-    <h2 class="yourDogName">Update Your Dog♡🐾</h2><br><br><br>
-    <div class="updateDogs">
-    <label for="name">Edit Name:
-        <input type="text" name="name" id="name">
-    </label><br>
-    <label for="age">Edit Age:
-        <input type="number" name="age" id="age" min="1">
-    </label><br>
-    <label for="city">Edit City:
-        <input type="text" name="city" id="city">
-    </label><br>
-    <label for="weight">Edit Weight:
-        <input type="number" name="weight" id="weight" min="1">
-    </label><br>
-    <label for="breed">Edit Breed:
-        <input type="text" name="breed" id="breed">
-    </label><br>
-    <label for="bio">Edit Bio:
-        <input type="text" name="bio" id="bio">
-    </label><br></div>
-    <label class="akcVerificationButton" for="hasAkcCertification">AKC Certification:
-        <input type="checkbox" name="hasAkcCertification" id="hasAkcCertification">
-    </label><br><br>
-    <div class="rowButtons">
-        <a href="/owners/<%= owner._id %>">⇤Go back↩</a>
-    <button type="submit">Update Dog ฅ՞•ﻌ•՞ฅ</button>
-</form>
+<div class="row">
+    <h3 class="editTitle">Update Your Dog's Info</h3>
+    <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=PUT" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input value="<%= dog.name %>" name="name" type="text" class="validate">
+          <label class="white-text"for="name">Edit Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="age" type="number" value="<%= dog.age %>" class="validate">
+          <label class="white-text"for="age">Edit Age</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="city" type="text" value="<%= dog.city %>" class="validate">
+          <label class="white-text" for="city">Edit City</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="weight" type="number" value="<%= dog.weight %>" class="validate">
+          <label class="white-text" for="weight">Edit Weight 	&#40;lbs&#41;</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="breed" type="text" value="<%= dog.breed %>" class="validate">
+          <label class="white-text" for="breed">Edit Breed</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="bio" type="text" value="<%= dog.bio %>" class="validate">
+          <label class="white-text" for="bio">Edit Bio</label>
+        </div>
+        <p class="akcBox">
+            <label class="white-text" for="hasAkcCertification">
+                <input name="hasAkcCertification" type="checkbox" class="filled-in" id="hasAkcCertification" <%= dog.hasAkcCertification ? "checked='checked'" : '' %>/>
+                <span>Is AKC Certified</span>
+            </label>
+        </p>
+        <div>
+            <button class="btn waves-effect waves-light dogUpdate" type="submit" name="action">Submit
+                <i class="material-icons right">pets</i>
+            </button>
+        </div>
+      </div>
+    </form>
+  </div>
 <%- include('../partials/footer') %>

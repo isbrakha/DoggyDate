@@ -17,9 +17,11 @@ async function startSwiping (req, res) {
       $and: [
         { _id: { $ne: userDog._id } },
         { _id: { $nin: userDog.likes } },
-        { _id: { $nin: userDog.dislikes } }
-      ]
+        { _id: { $nin: userDog.dislikes } },
+        { owner: {$ne: owner}}
+      ]      
     });
+    console.log(otherDogs)
     const rndmInt = Math.floor(Math.random() * otherDogs.length)
     const otherDog = otherDogs[rndmInt]
     res.render('swiping/swipe', {userDog: userDog, owner: owner, dog: otherDog});

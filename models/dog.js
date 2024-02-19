@@ -8,10 +8,10 @@ const dogSchema = new Schema(
     name: {type: String, required: true},
     age: {type: Number, required: true},
     city: {type: String, required: true},
-    weight: {type: Number},
-    breed: {type: String},
-    bio: {type: String},
-    hasAkcCertification: {type: Boolean},
+    weight: {type: Number, required: true}, 
+    breed: {type: String, required: true},
+    bio: {type: String, required: true},
+    hasAkcCertification: {type: Boolean, required: true},
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Owner'

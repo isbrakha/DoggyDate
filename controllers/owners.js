@@ -33,7 +33,8 @@ async function show(req, res) {
     try {
         const owner = await Owner.findById(req.params.id);
         const dogs = await Dog.find({ owner: owner._id });
-        res.render('owners/show', { owner, dogs });
+        const editedDogId = req.query.editedDogId || null;
+        res.render('owners/show', { owner, dogs, editedDogId });
     } catch (err) {
         console.log(err);
         res.redirect('/');
