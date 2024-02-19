@@ -13,12 +13,6 @@ Introducing "DoggyDate," an app for dog owners to create profiles for their pets
 # EDR
 ![](public/edr-trello/edr.png)
 
-## Screenshots
-![](public/screenshots/home-page.png)
-![](public/screenshots/owner-page.png)
-![](public/screenshots/add-page.png)
-![](public/screenshots/update-page.png)
-![](public/screenshots/matching-page.png)
 ## Wireframe
 ![](./public/wireframes/Wireframe1.jpg)
 ![](./public/wireframes/Wireframe2.jpg)
