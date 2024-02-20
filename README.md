@@ -21,7 +21,7 @@ Introducing "DoggyDate," an app for dog owners to create profiles for their pets
 ![](./public/wireframes/Wireframe5.jpg)
 
 ## Technologies Used
-Javascript, Node.js, Multer, Streamifier, Cloudinary, Passport, Express, HTML, CSS, Mongoose, MongoDB, GoogleOAuth
+Javascript, Node.js, Multer, Streamifier, Cloudinary, Passport, Express, HTML, CSS, Mongoose, MongoDB, GoogleOAuth, MaterializeCss
 
 ## Deployed App
 https://doggydating-c428b5defcd3.herokuapp.com/

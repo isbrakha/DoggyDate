@@ -1,3 +1,4 @@
+
 .logo {
     height: auto;
     width: 35vmin;
@@ -14,19 +15,20 @@
 
 .page-container { 
     display: flex;
-    height: 100vh;
+    height: 91.5vh;
     justify-content: space-between;
     flex-direction: column;
-    /* width: 100%; */
-
+    width: 100%;
 }
 
 .carousel{
+    margin: -5rem 0;
     height: auto;
     min-height: 65vh;
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
+
 }
 
 .carousel-item {
@@ -190,19 +192,19 @@ right: 2rem;
 
 .addDogBtn{
     width: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -40%);
     left: 50%;
     min-width: 34vmin;
-    margin-top: -6rem;
-    max-height:8vh ;
+    margin-top: -5rem;
+    max-height:8vh;
 }
 
 .ownerShowTitle{
-    font-size: 6vh;
+    font-size: 5vh;
 }
 
 .ownerShowSubtitle{
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 .btn{
@@ -226,4 +228,115 @@ right: 2rem;
     padding: .4rem;
     font-size: 2vmin;
     font-size: 1rem;
+}
+
+.like-dis-container form button{
+    all: unset ;
+}
+
+.like-dis-container form button i{
+    font-size: 18vmin;
+}
+
+.like-dis-container form button:active{
+    all: unset ;
+    font-size: 5rem;
+    animation: zoom-in-zoom-out 1s ease infinite;
+    
+}
+
+.like-dis-container{
+    display: flex;
+}
+
+
+
+
+.like-dis-container form .fa-heart{
+    color: red;
+    text-shadow: coral 1px 0 10px;
+    margin-left: 9vmin;
+}
+
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(2, 2);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+
+.swipe-container{
+    display: flex;
+    height: 95vh;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text-swipe {
+    font-size: 3.75vmin;
+    position: relative;
+    font-family: "Fredoka", sans-serif;
+}
+
+.logo-swipe {
+    height: auto;
+    width: 15vmin;
+    position: relative;
+}
+
+.logo-container{
+    display:flex;
+    align-items: center;
+    padding-top: 0;
+}
+
+.swipe-container > button  {
+    margin-top: 1rem;
+    border-radius: 20px;
+}
+
+
+.swipe-container > button * {
+    color: white;
+    font-size: 3.5vmin;
+
+}
+
+
+ul .tab:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+@media only screen and (min-height: 570px) {
+    .page-container{
+        height: 93vh;
+    }
+}
+
+@media only screen and (min-height: 687px) {
+    .page-container{
+        height: 95vh;
+    }
+}
+
+
+.tabs-transparent {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+
+}
+
+.tabs-transparent .material-icons{
+    margin-top: -.3rem;
 }

@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div class="page-container">
-  <div>
-  <h3 class="ownerShowTitle">Welcome back</h3>
+  <div class="show-title-container">
+  <h3 class="ownerShowTitle">Hey, <%=owner.name %></h3>
   <h6 class="ownerShowSubtitle">Here are your dogs ready to find a match!:</h6>
 </div>
   <div class="carousel">
@@ -29,11 +29,12 @@
     <i class="material-icons carousel-prev">navigate_before</i>
     <i class="material-icons carousel-next">navigate_next</i>
   </div>
-  <button class="addDogBtn btn waves-effect waves-light amber" onclick="location.href='/owners/<%= owner._id %>/dogs/new';">Add a Dog <i class="material-icons right">pets</i></button> 
+  <button class="addDogBtn btn waves-effect waves-light cyan" onclick="location.href='/owners/<%= owner._id %>/dogs/new';">Add a Dog <i class="material-icons right">pets</i></button> 
   <% } else { %>
   <h3 class="noDogsPadding">You haven't added any dogs.</h3>
   <% } %>
 </div>
+<%- include('../partials/footer') %>
 
 
 <script>

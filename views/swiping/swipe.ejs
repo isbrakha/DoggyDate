@@ -1,35 +1,42 @@
 <%- include('../partials/header') %>
-<section id="swipe-page">
-    <% if (dog) { %>
-      
-        
+<div class="swipe-container">
+  <div class="logo-container">
+    <img class="logo-swipe" src="/favicon.ico"/>
+    <h1 class="title-text-swipe  center-align">DoggyDate</h1>
+  </div>  
+<div class="row">
+  <% if (dog) { %>
+  <div class="col s12 m6 swipe-col">
+    <div class="card">
+      <div class="card-image">
         <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
-        <div class="aboutDogClass">
-
-          <h3><%= dog.name %></h3>
-          <p>Age: <%= dog.age %></p>
-          <p>Breed: <%= dog.breed %></p>
-          <p>Bio: <%= dog.bio %></p>
-          
-          
-          <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/like/<%= dog._id %>" method="POST">
-            <button type="submit">Like ❤️</button>
-          </form>
-          
-          
-          <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/dislike/<%= dog._id %>" method="POST">
-            <button type="submit">Dislike 💔</button>
-          </form>
-        </div>
-        <% } else { %>
-          <div class="noMoreDogs">
-            <p>No more dogs to swipe on!</p><br><br>
+        <span class="card-title">
+          <%= dog.name%> <br/> 
+          <span><%= dog.bio%></span>
           </div>
-          <% } %>
-          <button><a href="/owners/<%= owner._id %>/dogs/<%= userDog._id%>/matches">View <%= userDog.name%>'s Matches</button>
-            <div class="refreshButton">
-              <a href="/owners/<%= owner._id %>">⇤Go back↩</a>
-            </div>
-              
-              
-              <%- include('../partials/footer') %>
+        </span>
+      </div>
+  </div>
+</div>
+<div class="like-dis-container">
+  <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/dislike/<%= dog._id %>" method="POST">
+    <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </form>
+  <form action="/owners/<%= owner._id %>/dogs/<%= userDog._id %>/like/<%= dog._id %>" method="POST">
+    <button class="" type="submit"><i class="fa fa-heart" aria-hidden="true"></i></button>
+  </form>
+</div>
+  <% } else { %>
+    <div class="noMoreDogs">
+      <p>No more dogs to swipe on!</p><br><br>
+    </div>
+  <% } %>
+  <button class="btn waves-effect waves-light cyan">
+      <a class="flow-text" href="/owners/<%= owner._id %>/dogs/<%= userDog._id%>/matches">
+      View <%= userDog.name %>'s Matches</a>
+      <i class="fa fa-heart right"></i>
+      <i class="fa fa-heart left"></i>
+  </button>
+</div>
+
+<%- include('../partials/footer') %>
