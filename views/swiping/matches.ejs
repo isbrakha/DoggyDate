@@ -1,12 +1,24 @@
 <%- include('../partials/header') %>
     <% if (userDog.matchedWith.length > 0) { %>
        <% userDog.matchedWith.forEach(function(m) { %>
-        <img src="<%= m.pictures %>" alt="<%= m.name %>" class="imgClass">
-            <%= m.name %> <br>
-            Age: <%= m.age %> <br>
-           Location: <%= m.city %> <br>
-           <button><a href="mailto:<%= m.owner.email %>" class="email-owner-button">Message Owner</a></button>
-            <% })%>
+        <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img class="match-images"src="<%= m.pictures %>" alt="<%= m.name %>" class="imgClass">
+                  <span class="card-title"><%= m.name %>, <%= m.age %></span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p><%= m.bio %></p>
+                </div>
+                <div class="card-action">
+                    <a href="mailto:<%= m.owner.email %>">Message Owner</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% })%>
     <%} else { %>
        <h3>you dont have any matches </h3> 
        <% } %>

@@ -340,3 +340,12 @@ ul .tab:hover{
 .tabs-transparent .material-icons{
     margin-top: -.3rem;
 }
+
+.matches-container{
+    display: flex;
+}
+
+.match-images{
+    height: auto;
+    width: auto;
+}
