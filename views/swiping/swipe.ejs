@@ -4,18 +4,18 @@
     <img class="logo-swipe" src="/favicon.ico"/>
     <h1 class="title-text-swipe  center-align">DoggyDate</h1>
   </div>  
-<div class="row">
   <% if (dog) { %>
+<div class="row">
   <div class="col s12 m6 swipe-col">
     <div class="card">
       <div class="card-image">
         <img src="<%= dog.pictures %>" alt="<%= dog.name %>" class="imgClass">
-        <span class="card-title">
-          <%= dog.name%> <br/> 
-          <span><%= dog.bio%></span>
-          </div>
+        <span class="card-title" id="swipe-dog-name">
+            <%= dog.name %>, <%= dog.age %><br/> 
+          <span class="dogBio"><%= dog.bio%></span>
         </span>
       </div>
+    </div>
   </div>
 </div>
 <div class="like-dis-container">
@@ -27,9 +27,9 @@
   </form>
 </div>
   <% } else { %>
-    <div class="noMoreDogs">
-      <p>No more dogs to swipe on!</p><br><br>
-    </div>
+  <div class="noMoreDogs">
+    <p>No more dogs to swipe on!</p><br><br>
+  </div>
   <% } %>
   <button class="btn waves-effect waves-light cyan">
       <a class="flow-text" href="/owners/<%= owner._id %>/dogs/<%= userDog._id%>/matches">

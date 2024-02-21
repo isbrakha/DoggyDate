@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-image">
             <img class="dog-img" src="<%= dog.pictures %>">
-            <span class="card-title flow-text" id="dogName"><%= dog.name %> <br/> <span class="dogBio"><%= dog.bio %></span></span>
+            <span class="card-title flow-text" id="dog-name"><%= dog.name %> <br/> <span class="dogBio"><%= dog.bio %></span></span>
           </div>
           <div class="card-action">
             <button class="btn waves-effect waves-light pink"  onclick="location.href='/owners/<%= owner._id %>/dogs/<%= dog._id %>/swipe';">Match
@@ -19,7 +19,6 @@
             </button>
             <button class="edit-btn btn waves-effect waves-light blue lighten-2"  onclick="location.href='<%= owner._id %>/dogs/<%= dog._id %>/edit';">Edit
             </button>
-
           </div>
         </div>
       </div>

@@ -41,7 +41,6 @@
   
 .card-image img{
     max-height: 50vh;
-    
 }
 .content-wrapper {
     display: flex;
@@ -147,6 +146,11 @@ right: 2rem;
     margin-bottom: -2rem;
 }
 
+.page-container #match-logo-container {
+    display: flex;
+    justify-content: center;
+}
+
 .card-action{
     display: flex;
     flex-direction: column;
@@ -165,10 +169,13 @@ right: 2rem;
     width: 70vmin;
 }
 
-/* .input-field input[type=text]:focus + label {
-    color: red !important;
-} */
+#msg-owner-btn, #msg-owner-icon{
+    font-size: 1.3vmin;
+}
 
+#msg-owner-icon{
+    margin-left: 1vmin;
+}
 .input-field input[type=text],
 .input-field input[type=number]{
     border-bottom: 1px solid white;
@@ -220,11 +227,21 @@ right: 2rem;
 }
 
 
-.card-image #dogName{
+.card-image #dog-name{
     font-family: "Fredoka", sans-serif;
     color: black;
     font-weight: 600;
-    background-color:rgba(100,181,246, 0.5);
+    background-color:rgba(100,181,246, 0.64);
+    padding: .4rem;
+    font-size: 2vmin;
+    font-size: 1rem;
+}
+
+.card-image #swipe-dog-name{
+    font-family: "Fredoka", sans-serif;
+    color: black;
+    font-weight: 600;
+    background-color:rgba(100,181,246, .64 );
     padding: .4rem;
     font-size: 2vmin;
     font-size: 1rem;
@@ -240,7 +257,6 @@ right: 2rem;
 
 .like-dis-container form button:active{
     all: unset ;
-    font-size: 5rem;
     animation: zoom-in-zoom-out 1s ease infinite;
     
 }
@@ -264,7 +280,7 @@ right: 2rem;
       transform: scale(1, 1);
     }
     50% {
-      transform: scale(2, 2);
+      transform: scale(.5, .5);
     }
     100% {
       transform: scale(1, 1);
@@ -293,6 +309,12 @@ right: 2rem;
     position: relative;
 }
 
+#logo-match {
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 50%;
+}
+
 .logo-container{
     display:flex;
     align-items: center;
@@ -317,19 +339,6 @@ ul .tab:hover{
 }
 
 
-@media only screen and (min-height: 570px) {
-    .page-container{
-        height: 93vh;
-    }
-}
-
-@media only screen and (min-height: 687px) {
-    .page-container{
-        height: 95vh;
-    }
-}
-
-
 .tabs-transparent {
     display:flex;
     align-items: center;
@@ -343,9 +352,40 @@ ul .tab:hover{
 
 .matches-container{
     display: flex;
+    flex-direction: column;
 }
 
 .match-images{
     height: auto;
     width: auto;
 }
+
+.noMoreDogs{
+    font-family: "Fredoka", sans-serif; 
+}
+
+@media only screen and (min-height: 570px) {
+    .page-container{
+        height: 93vh;
+    }
+}
+
+@media only screen and (min-height: 687px) {
+    .page-container{
+        height: 95vh;
+    }
+}
+
+
+@media only screen and (max-height: 700px) {
+    .swipe-container{
+        height: 93vh;
+    }
+}
+
+@media only screen and (max-height: 530px) {
+    .swipe-container{
+        height: 91.5vh;
+    }
+}
+

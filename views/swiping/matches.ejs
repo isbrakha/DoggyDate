@@ -1,25 +1,77 @@
 <%- include('../partials/header') %>
-    <% if (userDog.matchedWith.length > 0) { %>
-       <% userDog.matchedWith.forEach(function(m) { %>
-        <div class="row">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <img class="match-images"src="<%= m.pictures %>" alt="<%= m.name %>" class="imgClass">
-                  <span class="card-title"><%= m.name %>, <%= m.age %></span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
-                <div class="card-content">
-                  <p><%= m.bio %></p>
-                </div>
-                <div class="card-action">
-                    <a href="mailto:<%= m.owner.email %>">Message Owner</a>
-                </div>
-              </div>
-            </div>
+<div class="page-container">
+  <div class="show-title-container">
+    <div id="match-logo-container">
+      <h1 class="title-text-swipe  center-align"><i class="fa fa-heart left"></i><%= userDog.name + "'s matches"%><i class="fa fa-heart right"></i></h1>
+    </div>  
+  </div>
+  <div class="carousel">
+  <% if (userDog.matchedWith.length> 0) { %>
+    <% userDog.matchedWith.forEach(function(dog) { %>
+      <div class="carousel-item" dogid="<%= dog._id %>">
+        <div class="card">
+          <div class="card-image">
+            <img class="dog-img" src="<%= dog.pictures %>">
+            <span class="card-title flow-text" id="dog-name"><%= dog.name %>, <%= dog.age %> <br/> <span class="dogBio"><%= dog.bio %></span></span>
           </div>
-        <% })%>
-    <%} else { %>
-       <h3>you dont have any matches </h3> 
-       <% } %>
+          <div class="card-action">
+            <button class="btn waves-effect waves-light pink" id="msg-owner-btn" onclick="location.href='mailto:<%= dog.owner.email %>';">Message Owner
+              <i class="fa fa-envelope" id="msg-owner-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <div class="carousel-controls">
+    <i class="material-icons carousel-prev">navigate_before</i>
+    <i class="material-icons carousel-next">navigate_next</i>
+  </div>
+  <% } else { %>
+  <h3 class="noDogsPadding">No matches yet!</h3>
+  <% } %>
+</div>
 <%- include('../partials/footer') %>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.carousel');
+    let instances = M.Carousel.init(elems, {
+      numVisible : 3,
+    });
+    let instance = M.Carousel.getInstance(elems[0]);
+  
+    window.addEventListener('resize', function() {
+      let instances = M.Carousel.init(elems, {});
+    });
+
+
+
+    document.querySelector('.carousel-prev').addEventListener('click', function() {
+      instance.prev(); 
+
+    });
+  
+    document.querySelector('.carousel-next').addEventListener('click', function() {
+      instance.next();
+    });
+
+
+
+    if(editedDogId){
+      let carouselItems = document.querySelectorAll('.carousel-item')
+      editedDogIndex = -1
+      for(let i = 0; i <carouselItems.length;i++){
+        if(carouselItems[i].attributes.dogid.value === editedDogId){
+          editedDogIndex = i
+          break
+        }
+      }
+      if(editedDogIndex > -1){
+        instance.set(editedDogIndex)
+      }
+    }
+  });
+</script>
+  
