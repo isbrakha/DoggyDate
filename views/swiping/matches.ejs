@@ -28,7 +28,11 @@
     <i class="material-icons carousel-next">navigate_next</i>
   </div>
   <% } else { %>
-  <h3 class="noDogsPadding">No matches yet!</h3>
+    <style> .page-container {height: 100vh;} </style>
+  <button class="btn waves-effect waves-light pink" id="keep-matching" onclick="location.href='/owners/<%= owner._id %>/dogs/<%= userDog._id %>/swipe';">Keep Matching..
+    <i class="fa fa-heart right"></i>
+  </button>
+  <h3 id="no-matches">No matches yet..</h3>
   <% } %>
 </div>
 <%- include('../partials/footer') %>

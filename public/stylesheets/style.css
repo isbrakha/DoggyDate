@@ -364,6 +364,18 @@ ul .tab:hover{
     font-family: "Fredoka", sans-serif; 
 }
 
+#keep-matching{
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%) ;
+
+}
+
+#no-matches{
+   transform: translateY(-400%);
+   font-size: 7vmin;
+}
+
 @media only screen and (min-height: 570px) {
     .page-container{
         height: 93vh;
