@@ -381,6 +381,21 @@ ul .tab:hover{
     overflow: hidden;
 }
 
+.no-dogs-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.no-dogs-container h3 {
+    font-size: 5vmin;
+}
+
+.no-dogs-container button {
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @media only screen and (min-height: 570px) {
     .page-container{
         height: 93vh;
