@@ -396,6 +396,10 @@ ul .tab:hover{
     transform: translateX(-50%);
 }
 
+.delete-dog-container button{
+    margin-top: 15vmin;
+}
+
 @media only screen and (min-height: 570px) {
     .page-container{
         height: 93vh;

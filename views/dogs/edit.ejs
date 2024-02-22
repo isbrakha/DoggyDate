@@ -40,5 +40,12 @@
         </div>
       </div>
     </form>
+    <div class="delete-dog-container">
+      <form action="/owners/<%= owner._id %>/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+        <button class="btn waves-effect waves-light red dogUpdate" type="submit" name="action">Delete Dog
+            <i class="material-icons right">close</i>
+         </button>
+    </form>
+  </div>
   </div>
 <%- include('../partials/footer') %>
