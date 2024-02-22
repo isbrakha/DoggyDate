@@ -376,6 +376,11 @@ ul .tab:hover{
    font-size: 7vmin;
 }
 
+.add-edit-container{
+    height: 92vh;
+    overflow: hidden;
+}
+
 @media only screen and (min-height: 570px) {
     .page-container{
         height: 93vh;
@@ -401,3 +406,14 @@ ul .tab:hover{
     }
 }
 
+@media only screen and (max-height: 700px) {
+    .add-edit-container{
+        height: 90vh;
+    }
+}
+
+@media only screen and (max-height: 530px) {
+    .add-edit-container{
+        height: 88vh;
+    }
+}
