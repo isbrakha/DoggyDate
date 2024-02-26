@@ -21,7 +21,6 @@ async function startSwiping (req, res) {
         { owner: {$ne: owner}}
       ]      
     });
-    console.log(otherDogs)
     const rndmInt = Math.floor(Math.random() * otherDogs.length)
     const otherDog = otherDogs[rndmInt]
     res.render('swiping/swipe', {userDog: userDog, owner: owner, dog: otherDog});
